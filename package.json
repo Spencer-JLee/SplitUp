@@ -26,5 +26,14 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Spencer-JLee/SplitUp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Spencer-JLee/SplitUp/issues"
+  },
+  "homepage": "https://github.com/Spencer-JLee/SplitUp#readme"
 }
