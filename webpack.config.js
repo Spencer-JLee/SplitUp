@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  entry: './frontend/todo_redux.jsx',
+  entry: './frontend/splitup.jsx',
   output: {
     path: path.resolve(__dirname), 
     filename: './bundle.js',
