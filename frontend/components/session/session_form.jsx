@@ -12,6 +12,7 @@ class SessionForm extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDemo = this.handleDemo.bind(this);
   }
 
   handleSubmit(e) {
@@ -30,97 +31,58 @@ class SessionForm extends React.Component {
     )
   }
 
-  render() {
-    // const header = this.props.formType === "login" ? "Log In" : "Sign Up";
-    // const path = this.props.formType === "login" ? "/signup" : "/login";
-    // const linkLabel = this.props.formType === "signup" ? "Log In" : "Sign Up";
-    // const errors = this.props.errors;
-    // let username;
+  handleDemo(e){
+    e.preventDefault;
+    this.props.processForm({email: "Potato", password: "Potato"})
+  }
 
+  render() {
     const form = this.props.formType === "login" ? (
       <div className="login">
         <div className="login-container">
-          <div className="login-form">
-            <div className="login-title">Log in</div>
-            <form action="">
-              <label htmlFor="">Email Address</label>
-              <div className="input-title">
-                <input className="text-input" type="text" value={this.state.email} onChange={this.handleInput("email")}/>
-              </div>
-              <label htmlFor="">Password</label>
-              <div className="input-title">
-                <input className="text-input" type="password" value={this.state.password} onChange={this.handleInput("password")}/>
-              </div>
-              <div className="login-button-div">
-                <input className="login-button" type="submit" value="Log In" onSubmit={this.handleSubmit}/>
-              </div>
-            </form>
-            <a href="" className="forgot">Forgot Your Password?</a>
-            <div className="or-div">
-              <hr className="inline-block"/>
-              <div className="or">or</div>
-              <hr className="inline-block"/>
-            </div>
-            <div className="demo-div">
-              <a href="" className="demo">Try with a Demo</a>
-            </div>
-          </div>
+          <h1 className="login-title">Log in</h1>
+          <form action="" className="login-form">
+            <label htmlFor="" className="email-label">Email address
+              <input className="text-input" type="text" value={this.state.email} onChange={this.handleInput("email")}/>
+            </label>
+            <label htmlFor="" className="password-label">Password
+              <input className="text-input" type="password" value={this.state.password} onChange={this.handleInput("password")}/>
+            </label>
+            <button className="login-button" onClick={this.handleSubmit}>Log In</button>
+            <button className="demo-button" onClick={this.handleDemo}>Try with a demo</button>
+          </form>
+          
         </div>
       </div>
     ) : (
-      <div>
+      <div className="signup">
         <div></div>
-        <div>
-          <a href=""></a>
-          <div>
+        <div className="signup-container">
+          <a href="" className="splitwise-logo"></a>
+          <div className="signup-form-container">
             <h2>Introduce yourself</h2>
-            <form action="">
-              <div>Hi there! My name is</div>
-              <input type="text" value={this.state.username} onChange={this.handleInput("username")}/>
-              <div>
-                <div>
+            <form action="" className="signup-form">
+              <label className="hi">Hi there! My name is</label>
+              <input className="username-input" type="text" value={this.state.username} onChange={this.handleInput("username")}/>
+              <div className="other-info">
+                <label>
                   Here's my <strong>email address</strong>:
-                  <br />
-                  <input type="text" value={this.state.email} onChange={this.handleInput("email")}/>
-                </div>
-                <div>
+                  <input className="email-input" type="text" value={this.state.email} onChange={this.handleInput("email")}/>
+                </label>
+                <label>
                   And here's my <strong>password</strong>:
-                  <br />
-                  <input type="password" value={this.state.password} onChange={this.handleInput("password")}/>
-                </div>
+                  <input className="password-input" type="password" value={this.state.password} onChange={this.handleInput("password")}/>
+                </label>
               </div>
-              <div>
-                <input type="submit" value="Sign me up!" onSubmit={this.handleSubmit}/>
-              </div>
+              <button className="signup-button" onClick={this.handleSubmit}>Sign Up</button>
             </form>
           </div>
         </div>
       </div>
     )
 
-    // if(this.props.formType === 'signup'){
-    //   username = (
-    //     <label>Username: 
-    //       <input type="text" value={this.state.username} onChange={this.handleInput("username")}/>
-    //     </label>
-    //   )
-    // }
-
     return (
       <div>
-        {/* <h1>{header}</h1>
-        <form>
-          {username}
-          <label>Email:
-            <input type="text" value={this.state.email} onChange={this.handleInput("email")}/>
-          </label>
-          <label>Password:
-            <input type="password" value={this.state.password} onChange={this.handleInput("password")}/>
-          </label>
-          <button onClick={this.handleSubmit}>{header}</button>
-        </form>
-        <Link to={path}>{linkLabel}</Link>
-        {errors.map(error => <p>{error}</p>)} */}
         {form}
       </div>
     )
