@@ -1,5 +1,5 @@
-
 import React from "react";
+import { ReactSVG } from "react-svg";
 import {Link} from "react-router-dom";
 
 class SessionForm extends React.Component {
@@ -56,11 +56,12 @@ class SessionForm extends React.Component {
       </div>
     ) : (
       <div className="signup">
-        <div></div>
         <div className="signup-container">
-          <a href="" className="splitwise-logo"></a>
+          <div>
+          <a href=""><img className="splitwise-logo"src="https://assets.splitwise.com/assets/core/logo-square-65a6124237868b1d2ce2f5db2ab0b7c777e2348b797626816400534116ae22d7.svg" alt="" /></a>
+          </div>
           <div className="signup-form-container">
-            <h2>Introduce yourself</h2>
+            <h2 className="introduce">INTRODUCE YOURSELF</h2>
             <form action="" className="signup-form">
               <label className="hi">Hi there! My name is</label>
               <input className="username-input" type="text" value={this.state.username} onChange={this.handleInput("username")}/>
@@ -74,7 +75,7 @@ class SessionForm extends React.Component {
                   <input className="password-input" type="password" value={this.state.password} onChange={this.handleInput("password")}/>
                 </label>
               </div>
-              <button className="signup-button" onClick={this.handleSubmit}>Sign Up</button>
+              <button className="signup-button" onClick={this.handleSubmit}>Sign me up!</button>
             </form>
           </div>
         </div>
