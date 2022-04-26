@@ -8,10 +8,27 @@ export default class SplashNav extends React.Component {
   
   render(){
     const display = this.props.currentUser ? (
-      <div>
-        <p>Welcome, {this.props.currentUser.username}</p>
-        <button onClick={this.props.logout}>Logout</button>
+      <div className="dashboard-nav">
+        <div className="dashboard-logo">
+          <img className="dashboard-logo-pic"src="https://assets.splitwise.com/assets/core/logo-square-65a6124237868b1d2ce2f5db2ab0b7c777e2348b797626816400534116ae22d7.svg"  alt="" />
+          <p>SplitUp</p>
+        </div>
+        <div className="user-info">
+          <img src="" alt="" />
+          <div className="dropdown">
+            <button className="dropdown-button">{this.props.currentUser.username}</button>
+            <div className="user-dropdown">
+              <Link>Your account</Link>
+              <Link>Create a group</Link>
+              <Link>Fairness calculators</Link>
+              <Link>Contact support</Link>
+              <Link to="/" onClick={this.props.logout}>Log out</Link>
+            </div>
+          </div>
+          <button onClick={this.props.logout}>Logout</button>
+        </div>
       </div>
+      
     ) : (
       <div className="splash-nav-bar">
         <div className="splash-logo">

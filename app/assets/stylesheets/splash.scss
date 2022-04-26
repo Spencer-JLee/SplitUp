@@ -12,10 +12,23 @@
 .splash-main{
     width: 50%;
     margin: 0 auto;
+    padding-bottom: 4rem;
+}
+
+.splash-animation{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .splash-less-stress{
     padding-top: 4rem;
+    flex: 1;
+    text-align: left;
+}
+
+.svg-icons{
+    flex: 1;
 }
 
 .splash-less-stress button{
@@ -31,6 +44,7 @@
     font-size: 1rem;
     font-weight: bold;
     border: 0;
+    cursor: pointer;
 }
 
 .splash-less-stress button:hover, .splash-pro button:hover{
@@ -89,19 +103,62 @@
     box-shadow: 0 4px 8px rgba(0,0,0,0.12);
     font-size: 1rem;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .headers{
     font-size: 1.5rem;
     padding: 2rem;
+    padding-left: 0;
     padding-bottom: 1rem;
     font-weight: bold;
+}
+
+.keep-track{
+    font-size: 1.5rem;
+}
+
+.splash-less-stress .headers{
+    font-size: 3rem;
+}
+
+.airplane, .house, .heart, .asterisk{
+    width: 10%;
+    height: 10%;
+    fill: currentColor;
+    margin: 1rem;
+    margin-top: 0rem;
+}
+
+.airplane{
+    color: #1cc29f;
+}
+
+.house{
+    color: #8656cd;
+}
+
+.heart{
+    color: #a6002f;
+}
+
+.asterisk{
+    color: #383B3f
+}
+
+.big-airplane{
+    margin-top: 3rem;
+    width: 100%;
+    height: 100%;
+    color: #1cc29f;
+    fill: currentColor;
 }
 
 .descriptions{
     width: 30%;
     margin: 0 auto;
     padding-bottom: 2rem;
+    line-height: 1.25;
 }
 
 .splash-pro .descriptions{
@@ -111,10 +168,3 @@
 .pro-description, .pro-image-div{
     flex: 1;
 }
-
-.pro-image{
-    display: block;
-}
-
-
-

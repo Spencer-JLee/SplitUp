@@ -1,0 +1,50 @@
+.dashboard-nav{
+    display: flex;
+    font-family: Lato;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #5bc5a7;
+    color: white;
+    align-items: center;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    box-shadow: 0 0 3px rgba(0,0,0,0.5);
+    position: sticky;
+}
+
+.user-info, .dashboard-logo{
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+}
+
+.dashboard-logo-pic{
+    width: 20%;
+    height: 20%;
+}
+
+.dropdown{
+    display: inline-block;
+}
+
+.dropdown-button{
+    background-color: #5bc5a7;
+    border: 0;
+    color: white;
+    cursor: pointer;
+}
+
+.dropdown-button:hover{
+    background-color: #3ba587;
+}
+
+.user-dropdown{
+    display: none;
+    position: absolute;
+    border: 1px solid rgba(0,0,0,0.2);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    background-color: white;
+    border-radius: 5px;
+    min-width: 160px;
+    z-index: 1;
+}
