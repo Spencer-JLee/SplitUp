@@ -1,0 +1,53 @@
+.nav-signup-button{
+    background-color: #18a582;
+    padding: 1rem;
+    text-decoration: none;
+    border-radius: 5px;
+    border: 0;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.12);
+}
+
+.nav-signup-button:hover{
+    box-shadow: 0px 0px 0px;
+    transform: translateY(2px);
+}
+
+.nav-signup{
+    padding: 1rem;
+}
+
+.nav-login{
+    padding: 1rem;
+    color: #18a582;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.splash-logo{
+    align-items: center;
+    height: 48px;
+}
+
+.splash-link{
+    text-decoration: none;
+    color: black;
+    font-size: 1.5rem;
+    align-items: center;
+    font-weight: 600;
+}
+
+.splash-logo-pic{
+    height: 48px;
+}
+
+.splash-nav-bar{
+    display: flex;
+    font-family: Lato;
+    justify-content: space-around;
+    font-size: 1rem;
+    align-items: center;
+    padding-bottom: 2rem;
+}

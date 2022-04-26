@@ -6,12 +6,31 @@ class Splash extends React.Component{
         return (
             <div>
                 <div>
+                    
+                </div>
+                <div>
+                    <div>
+
+                    </div>
+                    <div>
+
+                    </div>
+                    <div>
+
+                    </div>
+                    <div>
+                        
+                    </div>
+                </div>
+                <div>
 
                 </div>
                 <div>
-                    
+
                 </div>
             </div>
         )
     }
 }
+
+export default Splash;

@@ -1,17 +1,34 @@
 import React from "react";
-import GreetingContainer from "./greeting/greeting_container";
+import SplashNavContainer from "./splash-nav/splash_nav_container";
 import { Route } from "react-router-dom";
 import LoginFormContainer from "./session/login_form_container";
 import SignupFormContainer from "./session/signup_form_container";
 import { AuthRoute } from "../util/route_util";
+import { Switch } from "react-router-dom";
 
-const App = () => (
-  <div>
-    <h1>SplitUp</h1>
-    <GreetingContainer />
-    <AuthRoute path="/login" component={LoginFormContainer} />
-    <AuthRoute path="/signup" component={SignupFormContainer} />
-  </div>
-);
+class App extends React.Component{
+  render(){
+
+    const NavPage = () => {
+      return(
+        <div>
+          <Switch>
+            <AuthRoute path="/signup" component={SignupFormContainer} />
+            <SplashNavContainer/>
+          </Switch>
+        </div>
+      )
+    }
+
+
+    return(
+      <div>
+        <Route component={NavPage}></Route>
+        <AuthRoute path="/login" component={LoginFormContainer} />
+      </div>
+    )
+  }
+}
+
 
 export default App;

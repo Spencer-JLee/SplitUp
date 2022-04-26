@@ -62,8 +62,9 @@
     box-shadow: 0px 4px 8px rgba(0,0,0,0.12);
 }
 
-.login:hover{
+.login-button:hover{
     box-shadow: 0px 0px 0px;
+    transform: translateY(4px);
 }
 
 .demo-button{
@@ -81,6 +82,7 @@
 
 .demo-button:hover{
     box-shadow: 0px 0px 0px;
+    transform: translateY(4px);
 }
 
 .signup{
@@ -153,5 +155,9 @@
     font-size: 1.5rem;
     border-radius: 10px;
     border: 1px solid rgba(0,0,0,0.12);
+    transform: translateY(4px);
 }
 
+.signup-button:hover{
+    background-color: #ff5020;
+}
