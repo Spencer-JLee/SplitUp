@@ -6,7 +6,7 @@
 }
 
 .login-container{
-    width: 50%;
+    width: 35%;
     margin: 0 auto;
     border-radius: 16px;
     border-color: #e6e8ee;
@@ -18,7 +18,9 @@
 
 .login-title{
     margin-left: 4rem;
-    margin-top: 4rem;
+    margin-top: 2rem;
+    font-size: 2rem;
+    margin-bottom: 2rem;
 }
 
 .login-form{
@@ -95,6 +97,7 @@
     position: relative;
     width: 50%;
     margin: 0 auto;
+    margin-top: 4rem;
     font-family: Lato;
 }
 

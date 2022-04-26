@@ -1,0 +1,120 @@
+.splash-page{
+    width: 100%;
+    font-family: Lato;
+}
+
+.splash-container{
+    background-image: image-url("facets.png");
+    text-align: center;
+    justify-content: center;
+}
+
+.splash-main{
+    width: 50%;
+    margin: 0 auto;
+}
+
+.splash-less-stress{
+    padding-top: 4rem;
+}
+
+.splash-less-stress button{
+    margin-top: 2rem;
+    color: white;
+    background-color: #1cc29f;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.12);
+    font-size: 1rem;
+    font-weight: bold;
+    border: 0;
+}
+
+.splash-less-stress button:hover, .splash-pro button:hover{
+    box-shadow: 0;
+    transform: translateY(2px);
+}
+
+.splash-features{
+    color: white;
+}
+
+.splash-top-features, .splash-bottom-features{
+    display: flex;
+}
+
+.splash-track-balances, .splash-pay-back{
+    width: 50%;
+    background-color: #373B3f;
+    background-image: image-url("facets.png");
+    flex: 1;
+}
+
+.splash-organize-expenses{
+    width: 50%;
+    background-color: #1cc29f;
+    background-image: image-url("facets.png");
+    flex: 1;
+}
+
+.splash-add-expenses{
+    width: 50%;
+    background-color: #f67240;
+    background-image: image-url("facets.png");
+    flex: 1;
+}
+
+.splash-pro{
+    color: white;
+    background-color: #8656cd;
+    background-image: image-url("facets.png");
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 2rem;
+}
+
+.splash-pro button{
+    border: 1px solid white;
+    color: white;
+    background-color: #8656cd;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.12);
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.headers{
+    font-size: 1.5rem;
+    padding: 2rem;
+    padding-bottom: 1rem;
+    font-weight: bold;
+}
+
+.descriptions{
+    width: 30%;
+    margin: 0 auto;
+    padding-bottom: 2rem;
+}
+
+.splash-pro .descriptions{
+    width: 40%;
+}
+
+.pro-description, .pro-image-div{
+    flex: 1;
+}
+
+.pro-image{
+    display: block;
+}
+
+
+
