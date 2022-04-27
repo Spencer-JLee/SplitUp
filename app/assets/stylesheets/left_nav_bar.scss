@@ -1,0 +1,80 @@
+.left-nav-bar{
+    width: 35%;
+    padding: 1rem;
+    display: grid;
+    justify-content: right;
+    color: #999;
+}
+
+
+.user-dashboard-nav{
+    padding-bottom: 1rem;   
+}
+
+
+.dashboard-link{
+    text-decoration: none;
+    color: #999;
+}
+
+.dashboard-link, .recent-activity, .all-expenses{
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.user-groups, .user-friends{
+    width: 180px;
+    color: #ccc;
+    background-color: #f6f6f6;
+    border-top: 1px solid #f3f3f3;
+    border-bottom: 1px solid #eee;
+    display: flex;
+}
+
+.groups-tag, .friends-tag, .button-tag{
+    flex: 1;
+}
+
+.groups-tag, .friends-tag{
+    padding-left: 0.5rem;
+}
+
+.button-tag{
+    border: 0;
+    color: #ccc;
+    background-color: #f6f6f6;
+}
+
+.user-friends-form{
+    padding-top: 1rem;
+    width: 180px;
+}
+
+.invite-friends{
+    background-color: #5bc5a7;
+    color: white;
+    padding: 0.25rem;
+    border: 1px solid #39a385;
+}
+
+.invite-form-button{
+    border: 1px solid #ccc;
+}
+
+.invite-input{
+    width: 150px;
+    margin: 5px;
+}
+
+.invite-input:focus{
+    border-color: skyblue;
+    box-shadow: 0 0 8px skyblue;
+}
+
+.invite-button{
+    margin: 5px;
+    margin-top: 0px;
+    border: 1px solid rgba(0,0,0,0.1);
+    padding: 0.25rem;
+    border-radius: 5px;
+}
