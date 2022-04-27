@@ -1,6 +1,4 @@
 import React from "react";
-import { ReactSVG } from "react-svg";
-import {Link} from "react-router-dom";
 
 class SessionForm extends React.Component {
   constructor(props) {

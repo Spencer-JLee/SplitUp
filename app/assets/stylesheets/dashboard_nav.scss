@@ -19,8 +19,8 @@
 }
 
 .dashboard-logo-pic{
-    width: 20%;
-    height: 20%;
+    width: 15%;
+    height: 15%;
 }
 
 .dropdown{
@@ -32,19 +32,29 @@
     border: 0;
     color: white;
     cursor: pointer;
+    padding: 0.25rem;
 }
 
-.dropdown-button:hover{
+.dropdown-button:hover, .user-options:hover{
     background-color: #3ba587;
 }
 
 .user-dropdown{
-    display: none;
     position: absolute;
     border: 1px solid rgba(0,0,0,0.2);
     box-shadow: 0 5px 10px rgba(0,0,0,0.2);
     background-color: white;
     border-radius: 5px;
     min-width: 160px;
-    z-index: 1;
+    transform: translateY(0.5rem);
+}
+
+.user-dropdown-hide{
+    display: none;
+}
+
+.user-options{
+    text-align: left;
+    color: black;
+    padding: 0.5rem;
 }

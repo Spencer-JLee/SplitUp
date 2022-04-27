@@ -4,6 +4,15 @@ import { Link } from "react-router-dom";
 export default class SplashNav extends React.Component {
   constructor(props){
     super(props);
+    this.state = {
+      show: false
+    }
+    this.handleMenu = this.handleMenu.bind(this)
+  }
+
+  handleMenu(e){
+    const newState = !this.state.show
+    this.setState({show: newState})
   }
   
   render(){
@@ -16,16 +25,17 @@ export default class SplashNav extends React.Component {
         <div className="user-info">
           <img src="" alt="" />
           <div className="dropdown">
-            <button className="dropdown-button">{this.props.currentUser.username}</button>
-            <div className="user-dropdown">
-              <Link>Your account</Link>
-              <Link>Create a group</Link>
-              <Link>Fairness calculators</Link>
-              <Link>Contact support</Link>
-              <Link to="/" onClick={this.props.logout}>Log out</Link>
-            </div>
+            <button onClick={this.handleMenu} onBlur={this.handleMenu} className="dropdown-button">
+              {this.props.currentUser.username}
+              <ul onClick={e => e.stopPropagation()} className={this.state.show ? "user-dropdown" : "user-dropdown-hide"}>
+                <li className="user-options">Your account</li>
+                <li className="user-options">Create a group</li>
+                <li className="user-options">Fairness calculators</li>
+                <li className="user-options">Contact support</li>
+                <li className="user-options" onClick={this.props.logout}>Log out</li>
+              </ul>
+            </button>
           </div>
-          <button onClick={this.props.logout}>Logout</button>
         </div>
       </div>
       
