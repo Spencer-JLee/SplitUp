@@ -4,6 +4,7 @@
     display: grid;
     justify-content: right;
     color: #999;
+    height: 25vh;
 }
 
 
@@ -11,15 +12,23 @@
     padding-bottom: 1rem;   
 }
 
-
-.dashboard-link{
+.dashboard-link, .recent-activity, .all-expenses{
+    padding: 0.25rem;
     text-decoration: none;
     color: #999;
 }
 
-.dashboard-link, .recent-activity, .all-expenses{
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+.dashboard-link:hover, .recent-activity:hover, .all-expenses:hover{
+    background-color: #eee;
+}
+
+.button-tag:hover{
+    color: #5bc5a7;
+}
+
+.dashboard-link:focus, .recent-activity:focus, .all-expenses:focus{
+    color: #5bc5a7;
+    font-weight: bolder;
 }
 
 .user-groups, .user-friends{

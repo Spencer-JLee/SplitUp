@@ -8,12 +8,10 @@ class LeftNavBar extends React.Component{
                 <div className="user-dashboard-nav">
                     <Link className="dashboard-link" to="/dashboard">Dashboard</Link>
                     <br />
-                    <a className="recent-activity">Recent activity</a>
-                    {/* <Link>Recent activity</Link> */}
+                    <Link to="/dashboard" className="recent-activity">Recent activity</Link>
                 </div>
                 <div className="user-groups-expenses">
-                    {/* <Link>All expenses</Link> */}
-                    <a className="all-expenses">All expenses</a>
+                    <Link to="/dashboard" className="all-expenses">All expenses</Link>
                     <div className="user-groups">
                         <p className="groups-tag">Groups</p>
                         <button className="button-tag">add</button>

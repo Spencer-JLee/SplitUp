@@ -16,9 +16,7 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.processForm(user).then(() => 
-    this.props.history.push('/'), 
-    (errors) => this.props.receiveErrors(errors.responseJSON));
+    this.props.processForm(user);
   }
 
   handleInput(type) {
@@ -34,9 +32,32 @@ class SessionForm extends React.Component {
     this.props.processForm({email: "Potato", password: "Potato"})
   }
 
+  handleErrors(){
+    const errors = this.props.formType === "login" ? (
+      <div className="login-errors">
+        Whoops! We couldn't find an account for that email address and password.
+        Maybe you've forgotten your password?
+      </div>
+    ) : (
+      <div className="signup-errors">
+        <p>The following errors occurred: </p>
+        <ul>
+          {this.props.errors.map(error => <li key={Math.random() * 10000}>{error}</li>)}
+        </ul>
+      </div>
+    )
+
+    return (
+      <div>
+        {errors}
+      </div>
+    )
+  }
+
   render() {
     const form = this.props.formType === "login" ? (
       <div className="login">
+        {this.props.errors.length > 0 ? this.handleErrors() : ''}
         <div className="login-container">
           <h1 className="login-title">Log in</h1>
           <form action="" className="login-form">
@@ -60,6 +81,7 @@ class SessionForm extends React.Component {
           </div>
           <div className="signup-form-container">
             <h2 className="introduce">INTRODUCE YOURSELF</h2>
+            {this.props.errors.length > 0 ? this.handleErrors() : ''}
             <form action="" className="signup-form">
               <label className="hi">Hi there! My name is</label>
               <input className="username-input" type="text" value={this.state.username} onChange={this.handleInput("username")}/>

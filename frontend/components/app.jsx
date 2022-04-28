@@ -6,7 +6,6 @@ import SignupFormContainer from "./session/signup_form_container";
 import { AuthRoute, ProtectedRoute } from "../util/route_util";
 import { Switch } from "react-router-dom";
 import Splash from "./splash/splash";
-import LeftNavBarContainer from "./left_nav_bar/left_nav_bar_container";
 import UserPage from "./user_page/user_page";
 
 class App extends React.Component{
@@ -29,7 +28,7 @@ class App extends React.Component{
         <Route component={NavPage}></Route>
         <AuthRoute exact path="/" component={Splash} />
         <AuthRoute path="/login" component={LoginFormContainer} />
-        <ProtectedRoute path="/dashboard" component={UserPage}/>
+        <ProtectedRoute component={UserPage}/>
       </div>
     )
   }
