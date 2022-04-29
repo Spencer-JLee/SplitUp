@@ -1,0 +1,1 @@
+json.extract! expense, :id, :owner_id, :amount, :description, :split_option

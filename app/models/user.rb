@@ -39,4 +39,12 @@ class User < ApplicationRecord
         self.save!
         self.session_token
     end
+
+    has_many :expense_members,
+        class_name: :ExpenseMember,
+        foreign_key: :user_id
+
+    has_many :expenses,
+        through: :expense_members,
+        source: :expense
 end
