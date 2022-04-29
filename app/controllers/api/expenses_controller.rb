@@ -3,7 +3,7 @@ class Api::ExpensesController < ApplicationController
     skip_before_action :verify_authenticity_token
 
     def index
-        @expenses = Expense.all 
+        @expenses = current_user.expenses
 
         render :index
     end

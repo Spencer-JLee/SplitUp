@@ -11,7 +11,7 @@ class LeftNavBar extends React.Component{
                     <Link to="/dashboard" className="recent-activity">Recent activity</Link>
                 </div>
                 <div className="user-groups-expenses">
-                    <Link to="/dashboard" className="all-expenses">All expenses</Link>
+                    <Link to="/all" className="all-expenses-link">All expenses</Link>
                     <div className="user-groups">
                         <p className="groups-tag">Groups</p>
                         <button className="button-tag">add</button>

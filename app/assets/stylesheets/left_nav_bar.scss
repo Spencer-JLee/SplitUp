@@ -12,13 +12,13 @@
     padding-bottom: 1rem;   
 }
 
-.dashboard-link, .recent-activity, .all-expenses{
+.dashboard-link, .recent-activity, .all-expenses-link{
     padding: 0.25rem;
     text-decoration: none;
     color: #999;
 }
 
-.dashboard-link:hover, .recent-activity:hover, .all-expenses:hover{
+.dashboard-link:hover, .recent-activity:hover, .all-expenses-link:hover{
     background-color: #eee;
 }
 
@@ -26,7 +26,7 @@
     color: #5bc5a7;
 }
 
-.dashboard-link:focus, .recent-activity:focus, .all-expenses:focus{
+.dashboard-link:focus, .recent-activity:focus, .all-expenses-link:focus{
     color: #5bc5a7;
     font-weight: bolder;
 }

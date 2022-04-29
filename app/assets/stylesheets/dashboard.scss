@@ -1,4 +1,4 @@
-.dashboard{
+.dashboard, .all-expenses{
     width: 30%;
     font-size: 1.5rem;
     border: 1px solid rgba(0,0,0,0.1);
@@ -6,14 +6,14 @@
     height: calc(100vh - 34px);
 }
 
-.dashboard-header{
+.dashboard-header, .all-expenses-header{
     display: flex;
     text-align: center;
     padding: 1rem;
     background-color: #eee;
 }
 
-.dashboard-title, .dashboard-buttons{
+.dashboard-title, .dashboard-buttons, .all-expenses-title{
     flex: 1;
 }
 
@@ -21,6 +21,12 @@
     padding: 0.5rem;
     text-align: left;
     font-weight: bold;
+}
+
+.all-expenses-title{
+    padding: 0.5rem;
+    text-align: left;
+    font-weight: 400;
 }
 
 .add-expense-button, .settle-up{

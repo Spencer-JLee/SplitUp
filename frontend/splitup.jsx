@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 // import { login, logout, signup } from "./util/session_api_util"
 import configureStore from "./store/store"
 import Root from "./components/root"
+import { fetchExpenses } from "./actions/expense_actions";
 
 document.addEventListener("DOMContentLoaded", () => {
     const root = document.getElementById("root")
@@ -19,7 +20,8 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
     store = configureStore();
     }
-    // window.getState = store.getState;
+    // window.getState = store.dispatch;
     // window.dispatch = store.dispatch;
+    // window.fetchExpenses = fetchExpenses
     ReactDOM.render(<Root store={store}></Root>, root);
 })

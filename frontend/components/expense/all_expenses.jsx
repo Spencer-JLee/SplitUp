@@ -1,12 +1,36 @@
 import React from "react";
+import Expense from "./expense";
 
 class AllExpenses extends React.Component{
+    componentDidMount(){
+        this.props.fetchExpenses()
+    }
+
     render(){
-        return (
-            <div>
-                
-            </div>
-        )
+        if(this.props.expenses){
+            return (
+                <div className="all-expenses">
+                    <div className="all-expenses-header">
+                        <div className="all-expenses-title">
+                            <h1>All expenses</h1>
+                        </div>
+                        <div className="dashboard-buttons">
+                            <button className="add-expense-button">Add an expense</button>
+                        </div>
+                    </div>
+                    <ul>
+                        {
+                            this.props.expenses.map(expense => 
+                                <Expense key={expense.id} expense={expense}/>
+                            )
+                        }
+                    </ul>
+                </div>
+            )
+        }
+        else{
+            return null;
+        }
     }
 }
 
