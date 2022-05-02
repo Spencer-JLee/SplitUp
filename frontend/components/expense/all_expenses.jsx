@@ -4,6 +4,7 @@ import Expense from "./expense";
 class AllExpenses extends React.Component{
     componentDidMount(){
         this.props.fetchExpenses()
+        this.props.fetchUsers()
     }
 
     render(){
@@ -16,12 +17,13 @@ class AllExpenses extends React.Component{
                         </div>
                         <div className="dashboard-buttons">
                             <button className="add-expense-button">Add an expense</button>
+                            <button className="settle-up">Settle up</button>
                         </div>
                     </div>
                     <ul>
                         {
                             this.props.expenses.map(expense => 
-                                <Expense key={expense.id} expense={expense}/>
+                                <Expense key={expense.id} currentUser={this.props.currentUser} users={this.props.users} expense={expense}/>
                             )
                         }
                     </ul>
