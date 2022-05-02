@@ -1,7 +1,19 @@
-.expense-header, .details-expense-transactions{
+.expense-header, .details-expense-transactions, .details-expense-balances{
     padding: 1rem;
     font-size: 1rem;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #ddd;
+}
+
+.expense-header{
+    cursor: pointer;
+}
+
+.expense-header:hover{
+    background-color: #f8f8f8;
+}
+
+.expense-description{
+    font-weight: bold;
 }
 
 .expense-transactions-details{
@@ -16,6 +28,8 @@
 
 .expense-payer{
     color: #999;
+    font-size: 0.75rem;
+    padding-bottom: 0.25rem;
 }
 
 .expense-amount{
@@ -42,11 +56,11 @@
 
 
 .expense-details{
-    display: inline;
+    display: none;
 }
 
-.expense-details-hide{
-    display: none;
+.details-expense-transactions, .details-expense-balances{
+    background-color: #f8f8f8;
 }
 
 .details-expense-description{
@@ -72,4 +86,9 @@
     font-size: 0.75rem;
     border: 1px solid rgba(0,0,0,0.12);
     cursor: pointer;
+}
+
+.details-expense-balances ul li{
+    font-size: 0.85rem;
+    padding-bottom: 0.25rem;
 }

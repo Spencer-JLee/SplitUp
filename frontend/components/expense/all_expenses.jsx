@@ -2,6 +2,13 @@ import React from "react";
 import Expense from "./expense";
 
 class AllExpenses extends React.Component{
+    constructor(props){
+        super(props)
+        this.state = {
+            showAddExpense: false
+        }
+    }
+
     componentDidMount(){
         this.props.fetchExpenses()
         this.props.fetchUsers()

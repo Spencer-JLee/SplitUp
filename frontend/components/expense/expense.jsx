@@ -3,27 +3,31 @@ import React from "react";
 class Expense extends React.Component{
     constructor(props){
         super(props)
-        this.state = {
-            show: false
-        }
         this.handleDetails = this.handleDetails.bind(this)
     }
 
-    handleDetails(e){
-        const newState = !this.state.show
-        this.setState({show: newState})
+    handleDetails(id){
+        const element = document.getElementById(id)
+        if(element === null){
+
+        }
+        else if(element.style.display === 'inline'){
+            element.style.display = 'none';
+        }
+        else{
+            element.style.display = 'inline';
+        }
     }
 
 
     render(){
-        // debugger
         if(Object.keys(this.props.users).length > 1){
             const owner = this.props.currentUser === this.props.users[this.props.expense.owner_id] ? 
             'You' : this.props.users[this.props.expense.owner_id].username
             
             return (
                 <li>
-                    <div className="expense-header" onClick={this.handleDetails}>
+                    <div className="expense-header" onClick={() => this.handleDetails(this.props.expense.id)}>
                         <div className="expense-description">
                             {this.props.expense.description}
                         </div>
@@ -47,7 +51,7 @@ class Expense extends React.Component{
                             </div>
                         </div>
                     </div>
-                    <div id={`expense` + this.props.expense.id} className="expense-details">
+                    <div id={this.props.expense.id} className="expense-details">
                         <div className="details-expense-transactions">
                             <div className="details-expense-description">
                                 {this.props.expense.description}
@@ -62,13 +66,20 @@ class Expense extends React.Component{
                         </div>
                         <div className="details-expense-balances">
                             <ul>
-                                <li>
+                                <li key={`expensedetail`+this.props.expense.owner_id+this.props.expense.id}>
                                     <strong>{this.props.users[this.props.expense.owner_id].username}</strong> paid 
-                                    <strong>${this.props.expense.amount} </strong> 
+                                    <strong> ${this.props.expense.amount} </strong> 
                                     and owes <strong>${this.props.expense.balances[this.props.expense.owner_id]}</strong>
-                                </li>
+                                </li> 
+                                {this.props.expense.allExpenseMembers.map(id => 
+                                    id === this.props.expense.owner_id ? 
+                                    null : 
+                                    <li key={`expensedetail`+id+this.props.expense.id}>
+                                        <strong>{this.props.users[id].username}</strong> owes 
+                                        <strong> ${this.props.expense.balances[id]}</strong>
+                                    </li>
+                                    )}   
                             </ul>
-                            {/* For each of the users in allExpensesMembers of expense, return the balance for each user */}
                         </div>
                     </div>
                 </li>

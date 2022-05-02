@@ -31,7 +31,7 @@ class LeftNavBar extends React.Component{
                     <p className="invite-friends">Invite friends</p>
                     <div className="invite-form-button">
                         <form action="" className="invite-form">
-                            <input type="text" className="invite-input"/>
+                            <input type="text" className="invite-input" placeholder="Enter an email address"/>
                         </form>
                         <button className="invite-button">Send invite</button>
                     </div>
