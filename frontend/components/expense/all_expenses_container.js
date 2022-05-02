@@ -15,8 +15,6 @@ const mapDispatchToProps = (dispatch) => {
     return {
         fetchUsers: () => dispatch(fetchUsers()),
         fetchExpenses: () => dispatch(fetchExpenses()),
-        createExpense: (expense) => dispatch(createExpense(expense)),
-        updateExpense: (expense) => dispatch(updateExpense(expense)),
         deleteExpense: (expenseId) => dispatch(deleteExpense(expenseId))
     }
 }
