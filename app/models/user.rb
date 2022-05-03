@@ -42,7 +42,8 @@ class User < ApplicationRecord
 
     has_many :expense_members,
         class_name: :ExpenseMember,
-        foreign_key: :user_id
+        foreign_key: :user_id,
+        dependent: :destroy
 
     has_many :expenses,
         through: :expense_members,

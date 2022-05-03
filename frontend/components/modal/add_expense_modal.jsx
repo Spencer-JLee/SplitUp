@@ -8,8 +8,10 @@ class AddExpenseModal extends React.Component{
             owner_id: this.props.currentUser.id,
             amount: "",
             description: "",
-            split_option: "equally"
+            split_option: "equally",
+            expense_members: [this.props.currentUser]
         }
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
 
     componentDidMount(){
@@ -22,11 +24,17 @@ class AddExpenseModal extends React.Component{
         }
     }
 
+    handleSubmit(e){
+        e.preventDefault;
+        const expense = Object.assign({}, this.state);
+        this.props.createExpense(expense)
+    }
+
     render(){
 
         const users = Object.values(this.props.users);
-        const usernames = [];
-        users.forEach(user => usernames.push(user.username))
+        // const usernames = [];
+        // users.forEach(user => usernames.push(user.username))
 
         return (
             <div className="modal-background">
@@ -35,20 +43,20 @@ class AddExpenseModal extends React.Component{
                         Add an expense
                     </div>
                     <div className="add-expense-modal-form">
-                        <form action="">
+                        <form action="" onSubmit={this.handleSubmit}>
                             <div className="add-expense-modal-form-users">
                                 With <strong>you</strong> and :
-                                <Select options={usernames} isMulti/>
+                                <Select options={usernames} isMulti onChange={this.update("expense_members")}/>
                             </div>
 
                             <div className="add-expense-modal-form-expense">
                                 <input type="text" placeholder="Enter a description" onChange={this.update("description")}/>
-                                $<input type="text" placeholder="0.00" onChange={this.update("amount")}/>
+                                $<input type="number" placeholder="0.00" min="0.00" step="0.01" value={this.state.amount} onChange={this.update("amount")}/>
                             </div>
                             <div className="add-expense-modal-form-split">
                                 <label htmlFor="owner-id">Paid by</label>
                                 <select name="" id="owner-id" onChange={this.update("owner_id")}>
-                                    {usernames.map(username => <option value={username}>username</option>)}
+                                    {users.map(user => <option value={user}>{user.username}</option>)}
                                 </select>
                                 <label htmlFor="">and split</label>
                                 <select name="" id="split-options" onChange={this.update("split_option")}>
@@ -60,7 +68,7 @@ class AddExpenseModal extends React.Component{
                             </div>
                             <div className="add-expense-modal-form-buttons">
                                 <button className="modal-cancel-button">Cancel</button>
-                                <button className="modal-save-button">Save</button>
+                                <button type="submit" className="modal-save-button">Save</button>
                             </div>
                         </form>
                     </div>

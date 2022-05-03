@@ -3,7 +3,8 @@ class Expense < ApplicationRecord
 
     has_many :expense_members,
         class_name: :ExpenseMember,
-        foreign_key: :expense_id
+        foreign_key: :expense_id,
+        dependent: :destroy
 
     has_many :users,
         through: :expense_members,

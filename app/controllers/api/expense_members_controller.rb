@@ -1,0 +1,33 @@
+class Api::ExpenseMembersController < ApplicationController
+    def create
+        @expense_member = ExpenseMember.new(expense_member_params)
+
+        if @expense_member.save
+            render :show
+        else
+            render json: @expense_member.errors.full_messages, status: 401
+        end
+    end
+
+    def update
+        @expense_member = ExpenseMember.find_by(user_id: params[:expense_member][:user_id], expense_id: params[:expense_member][:expense_id])
+
+        if @expense_member.update(expense_member_params)
+            render :show
+        else
+            render json: @expense_member.errors.full_messages, status: 401
+        end
+    end
+
+
+    def destroy
+        @expense_member = ExpenseMember.find(params[:id])
+        @expense_member.destroy
+        render json: ['Expense member deleted']
+    end
+
+    private
+    def expense_member_params
+        params.require(:expense_split).permit(:expense_id, :user_id, :balance)
+    end
+end

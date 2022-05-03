@@ -26298,3 +26298,51 @@ Completed 200 OK in 9ms (Views: 9.0ms | ActiveRecord: 0.2ms)
 Completed 200 OK in 21ms (Views: 16.7ms | ActiveRecord: 3.0ms)
 
 
+Started GET "/" for 127.0.0.1 at 2022-05-02 22:50:29 -0400
+  [1m[35m (19.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/spencer/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.7/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (17.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "IHKbha0Z_mTag6xqCfNx_g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.8ms)
+  Rendered static_pages/root.html.erb within layouts/application (138.3ms)
+Completed 200 OK in 3367ms (Views: 3293.7ms | ActiveRecord: 63.2ms)
+
+
+Started GET "/api/expenses" for 127.0.0.1 at 2022-05-02 22:50:33 -0400
+Started GET "/api/users" for 127.0.0.1 at 2022-05-02 22:50:33 -0400
+Processing by Api::ExpensesController#index as JSON
+Processing by Api::UsersController#index as JSON
+  [1m[36mUser Load (11.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "IHKbha0Z_mTag6xqCfNx_g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering api/users/index.json.jbuilder
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/api/users/index.json.jbuilder:1
+  Rendered api/users/_user.json.jbuilder (0.7ms)
+  Rendered api/users/_user.json.jbuilder (0.1ms)
+  Rendered api/users/_user.json.jbuilder (0.1ms)
+  Rendered api/users/_user.json.jbuilder (0.1ms)
+  Rendered api/users/_user.json.jbuilder (0.1ms)
+  Rendered api/users/_user.json.jbuilder (0.1ms)
+  Rendered api/users/index.json.jbuilder (14.0ms)
+Completed 200 OK in 36ms (Views: 34.5ms | ActiveRecord: 1.4ms)
+
+
+  Rendering api/expenses/index.json.jbuilder
+  [1m[36mExpense Load (25.0ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" INNER JOIN "expense_members" ON "expenses"."id" = "expense_members"."expense_id" WHERE "expense_members"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/expenses/index.json.jbuilder:1
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "user_id" FROM "users" INNER JOIN "expense_members" ON "users"."id" = "expense_members"."user_id" WHERE "expense_members"."expense_id" = $1[0m  [["expense_id", 2]]
+  ↳ app/views/api/expenses/_expense.json.jbuilder:2
+  [1m[36mExpenseMember Load (0.7ms)[0m  [1m[34mSELECT "expense_members".* FROM "expense_members" WHERE "expense_members"."expense_id" = $1[0m  [["expense_id", 2]]
+  ↳ app/views/api/expenses/_expense.json.jbuilder:3
+  Rendered api/expenses/_expense.json.jbuilder (56.3ms)
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "user_id" FROM "users" INNER JOIN "expense_members" ON "users"."id" = "expense_members"."user_id" WHERE "expense_members"."expense_id" = $1[0m  [["expense_id", 3]]
+  ↳ app/views/api/expenses/_expense.json.jbuilder:2
+  [1m[36mExpenseMember Load (3.6ms)[0m  [1m[34mSELECT "expense_members".* FROM "expense_members" WHERE "expense_members"."expense_id" = $1[0m  [["expense_id", 3]]
+  ↳ app/views/api/expenses/_expense.json.jbuilder:3
+  Rendered api/expenses/_expense.json.jbuilder (14.4ms)
+  Rendered api/expenses/index.json.jbuilder (170.8ms)
+Completed 200 OK in 323ms (Views: 139.4ms | ActiveRecord: 53.9ms)
+
+

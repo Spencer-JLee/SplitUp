@@ -1,0 +1,1 @@
+json.extract! @expense_member, :id, :user_id, :expense_id, :balance
