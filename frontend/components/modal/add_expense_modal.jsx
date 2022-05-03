@@ -12,69 +12,110 @@ class AddExpenseModal extends React.Component{
             expense_members: [this.props.currentUser]
         }
         this.handleSubmit = this.handleSubmit.bind(this)
+        this.updateExpenseMembers = this.updateExpenseMembers.bind(this)
     }
 
     componentDidMount(){
         this.props.fetchUsers()
+        this.props.fetchExpenses()
     }
 
     update(field){
+        // debugger
         return (e) => {
             this.setState({[field]: e.currentTarget.value})
         }
     }
 
+    updateExpenseMembers = (expense_members) => {
+        const allMembers = [this.props.currentUser]
+        expense_members.forEach(member => {
+            if(member.value !== undefined){
+                allMembers.push(member.value)
+            }
+            else{
+                allMembers.push(member)
+            }
+        })
+
+        this.setState({expense_members: allMembers})
+    }
+
     handleSubmit(e){
         e.preventDefault;
-        const expense = Object.assign({}, this.state);
+        const expense = {owner_id: this.state.owner_id, amount: this.state.amount, description: this.state.description, split_option: this.state.split_option}
         this.props.createExpense(expense)
+        const lastExpense = this.props.expenses[this.props.expenses.length - 1]
+        this.state.expense_members.forEach(expenseMember => {
+            let balance;
+            switch(expense.split_option){
+                case "equally":
+                default:
+                    balance = (expense.amount / this.state.expense_members.length).toFixed(2)
+            }
+            const newExpenseMember = { user_id: expenseMember.id, expense_id: lastExpense.id, balance: balance}
+            this.props.createExpenseMember(newExpenseMember)
+        })
     }
 
     render(){
 
-        const users = Object.values(this.props.users);
-        // const usernames = [];
-        // users.forEach(user => usernames.push(user.username))
+        const users = this.props.users;
+        const usernames = [];
+        users.forEach(user => {
+            if(user !== this.props.currentUser){
+                usernames.push({value: user, label: user.username})
+            }
+        });
 
-        return (
-            <div className="modal-background">
-                <div className="modal-container">
-                    <div className="modal-header">
-                        Add an expense
+        if(this.props.users.length > 1){
+            return (
+                <div className={this.props.show ? "modal-background" : "modal-background-hide"} onClick={(e) => this.props.toggleModal(e)}>
+                    <div className="modal-container" onClick={(e) => e.stopPropagation()}>
+                        <div className="modal-header">
+                            Add an expense
+                        </div>
+                        <div className="add-expense-modal-form">
+                            <form action="">
+                                <div className="add-expense-modal-form-users">
+                                    With <strong>you</strong> and :
+                                    <Select 
+                                        options={usernames} 
+                                        isMulti
+                                        onChange={this.updateExpenseMembers}
+                                    />
+                                </div>
+    
+                                <div className="add-expense-modal-form-expense">
+                                    <input type="text" placeholder="Enter a description" onChange={this.update("description")}/>
+                                    $<input type="number" placeholder="0.00" min="0.00" step="0.01" value={this.state.amount} onChange={this.update("amount")}/>
+                                </div>
+                                <div className="add-expense-modal-form-split">
+                                    <label htmlFor="owner-id">Paid by </label>
+                                    <select name="" id="owner-id" onChange={this.update("owner_id")}>
+                                        {this.state.expense_members.map(user => <option value={user.id}>{user.username}</option>)}
+                                    </select>
+                                    <label htmlFor="split-options"> and split</label>
+                                    <select name="" id="split-options" onChange={this.update("split_option")}>
+                                        <option value="equally">equally</option>
+                                        <option value="exact_amount">exact amount</option>
+                                        <option value="percentages">percentages</option>
+                                        <option value="shares">shares</option>
+                                    </select>
+                                </div>
+                                <div className="add-expense-modal-form-buttons">
+                                    <button onClick={(e) => this.props.toggleModal(e)} className="modal-cancel-button">Cancel</button>
+                                    <button onClick={this.handleSubmit} className="modal-save-button">Save</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
-                    <div className="add-expense-modal-form">
-                        <form action="" onSubmit={this.handleSubmit}>
-                            <div className="add-expense-modal-form-users">
-                                With <strong>you</strong> and :
-                                <Select options={usernames} isMulti onChange={this.update("expense_members")}/>
-                            </div>
-
-                            <div className="add-expense-modal-form-expense">
-                                <input type="text" placeholder="Enter a description" onChange={this.update("description")}/>
-                                $<input type="number" placeholder="0.00" min="0.00" step="0.01" value={this.state.amount} onChange={this.update("amount")}/>
-                            </div>
-                            <div className="add-expense-modal-form-split">
-                                <label htmlFor="owner-id">Paid by</label>
-                                <select name="" id="owner-id" onChange={this.update("owner_id")}>
-                                    {users.map(user => <option value={user}>{user.username}</option>)}
-                                </select>
-                                <label htmlFor="">and split</label>
-                                <select name="" id="split-options" onChange={this.update("split_option")}>
-                                    <option value="equally">equally</option>
-                                    <option value="exact_amount">exact amount</option>
-                                    <option value="percentages">percentages</option>
-                                    <option value="shares">shares</option>
-                                </select>
-                            </div>
-                            <div className="add-expense-modal-form-buttons">
-                                <button className="modal-cancel-button">Cancel</button>
-                                <button type="submit" className="modal-save-button">Save</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>  
-        )
+                </div>  
+            )
+        }
+        else{
+            return null;
+        }
     }
 }
 

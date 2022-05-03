@@ -1,4 +1,6 @@
 class Api::ExpenseMembersController < ApplicationController
+    skip_before_action :verify_authenticity_token
+
     def create
         @expense_member = ExpenseMember.new(expense_member_params)
 
@@ -28,6 +30,6 @@ class Api::ExpenseMembersController < ApplicationController
 
     private
     def expense_member_params
-        params.require(:expense_split).permit(:expense_id, :user_id, :balance)
+        params.require(:expense_member).permit(:expense_id, :user_id, :balance)
     end
 end

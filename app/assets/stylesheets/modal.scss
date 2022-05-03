@@ -1,13 +1,62 @@
 .modal-background{
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(255,255,255,0.8);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.modal-background-hide{
+    display: none;
 }
 
 .modal-container{
     border-radius: 5px;
-    border: 1px solid rgba(0,0,0,0.6);
+    border: 1px solid rgba(0,0,0,0.4);
+    background-color: white;
+    position: absolute;
+    top: 20%;
+    left: 40%;
+    width: 20%;
 }
 
 .modal-header{
     background-color: #48be9d;
     color: white;
+    padding: 0.5rem;
+}
+
+.add-expense-modal-form{
+    padding: 0.5rem;
+}
+
+.add-expense-modal-form-users{
+    padding: 0.5rem;
+    font-size: 0.75rem;
+}
+
+.add-expense-modal-form-expense{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    padding: 0.5rem;
+}
+
+.add-expense-modal-form-expense div{
+    flex: 1;
+    width: 50%;
+    font-size: 1rem;
+}
+
+.add-expense-modal-form-split{
+    font-size: 1rem;
+    padding: 0.5rem;
+    text-align: center;
+}
+
+.add-expense-modal-form-buttons{
+    display: flex;
+    justify-content: right;
 }

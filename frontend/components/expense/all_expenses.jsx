@@ -1,5 +1,6 @@
 import React from "react";
 import Expense from "./expense";
+import AddExpenseModalContainer from "../modal/add_expense_modal_container";
 
 class AllExpenses extends React.Component{
     constructor(props){
@@ -7,11 +8,18 @@ class AllExpenses extends React.Component{
         this.state = {
             showAddExpense: false
         }
+        this.toggleModal = this.toggleModal.bind(this)
     }
 
     componentDidMount(){
         this.props.fetchExpenses()
         this.props.fetchUsers()
+    }
+
+    toggleModal(e){
+        e.preventDefault()
+        const show = this.state.showAddExpense;
+        this.setState({showAddExpense: !show})
     }
 
     render(){
@@ -23,7 +31,7 @@ class AllExpenses extends React.Component{
                             <h1>All expenses</h1>
                         </div>
                         <div className="dashboard-buttons">
-                            <button className="add-expense-button">Add an expense</button>
+                            <button onClick={this.toggleModal} className="add-expense-button">Add an expense</button>
                             <button className="settle-up">Settle up</button>
                         </div>
                     </div>
@@ -34,6 +42,7 @@ class AllExpenses extends React.Component{
                             )
                         }
                     </ul>
+                    <AddExpenseModalContainer show={this.state.showAddExpense} toggleModal={this.toggleModal}/>
                 </div>
             )
         }
