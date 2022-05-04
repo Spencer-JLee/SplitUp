@@ -12,7 +12,7 @@ class AddExpenseModal extends React.Component{
             expense_members: [this.props.currentUser]
         }
         this.handleSubmit = this.handleSubmit.bind(this)
-        this.updateExpenseMembers = this.updateExpenseMembers.bind(this)
+        this.addExpenseMembers = this.addExpenseMembers.bind(this)
     }
 
     componentDidMount(){
@@ -27,7 +27,7 @@ class AddExpenseModal extends React.Component{
         }
     }
 
-    updateExpenseMembers = (expense_members) => {
+    addExpenseMembers = (expense_members) => {
         const allMembers = [this.props.currentUser]
         expense_members.forEach(member => {
             if(member.value !== undefined){
@@ -59,7 +59,7 @@ class AddExpenseModal extends React.Component{
                 const newExpenseMember = { user_id: user.id, expense_id: newExpense.expense.id, balance: balance}
                 createExpenseMember(newExpenseMember)
             })
-        })
+        }).then(() => this.props.toggleModal())
     }
 
     render(){
@@ -74,7 +74,7 @@ class AddExpenseModal extends React.Component{
 
         if(this.props.users.length > 1){
             return (
-                <div className={this.props.show ? "modal-background" : "modal-background-hide"} onClick={(e) => this.props.toggleModal(e)}>
+                <div className={this.props.show ? "modal-background" : "modal-background-hide"} onClick={() => this.props.toggleModal()}>
                     <div className="modal-container" onClick={(e) => e.stopPropagation()}>
                         <div className="modal-header">
                             Add an expense
@@ -86,7 +86,7 @@ class AddExpenseModal extends React.Component{
                                     <Select 
                                         options={usernames} 
                                         isMulti
-                                        onChange={this.updateExpenseMembers}
+                                        onChange={this.addExpenseMembers}
                                     />
                                 </div>
     
@@ -108,7 +108,7 @@ class AddExpenseModal extends React.Component{
                                     </select>
                                 </div>
                                 <div className="add-expense-modal-form-buttons">
-                                    <button onClick={(e) => this.props.toggleModal(e)} className="modal-cancel-button">Cancel</button>
+                                    <button onClick={() => this.props.toggleModal()} className="modal-cancel-button">Cancel</button>
                                     <button onClick={this.handleSubmit} className="modal-save-button">Save</button>
                                 </div>
                             </form>

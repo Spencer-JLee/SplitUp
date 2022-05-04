@@ -16,8 +16,7 @@ class AllExpenses extends React.Component{
         this.props.fetchUsers()
     }
 
-    toggleModal(e){
-        e.preventDefault()
+    toggleModal(){
         const show = this.state.showAddExpense;
         this.setState({showAddExpense: !show})
     }
