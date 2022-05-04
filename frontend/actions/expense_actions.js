@@ -6,6 +6,7 @@ export const REMOVE_EXPENSE = "REMOVE_EXPENSE";
 
 
 const receiveExpenses = (expenses) => {
+    // debugger
     return {
         type: RECEIVE_EXPENSES,
         expenses

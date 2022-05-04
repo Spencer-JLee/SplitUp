@@ -12,7 +12,7 @@ class Api::ExpenseMembersController < ApplicationController
     end
 
     def update
-        @expense_member = ExpenseMember.find_by(user_id: params[:expense_member][:user_id], expense_id: params[:expense_member][:expense_id])
+        @expense_member = ExpenseMember.find_by(user_id: params[:user_id], expense_id: params[:expense_id])
 
         if @expense_member.update(expense_member_params)
             render :show
@@ -30,6 +30,6 @@ class Api::ExpenseMembersController < ApplicationController
 
     private
     def expense_member_params
-        params.require(:expense_member).permit(:expense_id, :user_id, :balance)
+        params.require(:expenseMember).permit(:expense_id, :user_id, :balance)
     end
 end

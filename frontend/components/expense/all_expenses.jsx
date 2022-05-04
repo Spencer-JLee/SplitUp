@@ -38,7 +38,7 @@ class AllExpenses extends React.Component{
                     <ul>
                         {
                             this.props.expenses.map(expense => 
-                                <Expense key={expense.id} currentUser={this.props.currentUser} users={this.props.users} expense={expense}/>
+                                <Expense key={expense.id} currentUser={this.props.currentUser} users={this.props.users} expense={expense} deleteExpense={this.props.deleteExpense}/>
                             )
                         }
                     </ul>

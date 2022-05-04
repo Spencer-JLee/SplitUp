@@ -21,9 +21,12 @@ class Expense extends React.Component{
 
 
     render(){
-        if(Object.keys(this.props.users).length > 1){
+        // debugger
+        if(Object.values(this.props.users).length > 1 && this.props.expense.owner_id && this.props.users){
             const owner = this.props.currentUser === this.props.users[this.props.expense.owner_id] ? 
             'You' : this.props.users[this.props.expense.owner_id].username
+            const owner_obj = this.props.users[this.props.expense.owner_id]
+            // debugger
             
             return (
                 <li>
@@ -49,6 +52,9 @@ class Expense extends React.Component{
                                     ${this.props.expense.balances[this.props.expense.owner_id]}
                                 </div>
                             </div>
+                            <div className="delete-expense" onClick={(e) => e.stopPropagation()}>
+                                <button className="delete-expense-button" onClick={() => this.props.deleteExpense(this.props.expense.id)}>X</button>
+                            </div>
                         </div>
                     </div>
                     <div id={this.props.expense.id} className="expense-details">
@@ -67,7 +73,7 @@ class Expense extends React.Component{
                         <div className="details-expense-balances">
                             <ul>
                                 <li key={`expensedetail`+this.props.expense.owner_id+this.props.expense.id}>
-                                    <strong>{this.props.users[this.props.expense.owner_id].username}</strong> paid 
+                                    <strong>{owner_obj.username}</strong> paid 
                                     <strong> ${this.props.expense.amount} </strong> 
                                     and owes <strong>${this.props.expense.balances[this.props.expense.owner_id]}</strong>
                                 </li> 

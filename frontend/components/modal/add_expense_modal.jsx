@@ -44,17 +44,21 @@ class AddExpenseModal extends React.Component{
     handleSubmit(e){
         e.preventDefault;
         const expense = {owner_id: this.state.owner_id, amount: this.state.amount, description: this.state.description, split_option: this.state.split_option}
-        this.props.createExpense(expense)
-        const lastExpense = this.props.expenses[this.props.expenses.length - 1]
-        this.state.expense_members.forEach(expenseMember => {
-            let balance;
-            switch(expense.split_option){
-                case "equally":
-                default:
-                    balance = (expense.amount / this.state.expense_members.length).toFixed(2)
-            }
-            const newExpenseMember = { user_id: expenseMember.id, expense_id: lastExpense.id, balance: balance}
-            this.props.createExpenseMember(newExpenseMember)
+        const length = this.state.expense_members.length
+        const createExpenseMember = this.props.createExpenseMember
+        // debugger
+        this.props.createExpense(expense).then(newExpense => {
+            this.state.expense_members.forEach(user => {
+                let balance;
+                switch(newExpense.expense.split_option){
+                    case "equally":
+                    default:
+                        balance = (newExpense.expense.amount / length).toFixed(2)
+                }
+                // debugger
+                const newExpenseMember = { user_id: user.id, expense_id: newExpense.expense.id, balance: balance}
+                createExpenseMember(newExpenseMember)
+            })
         })
     }
 

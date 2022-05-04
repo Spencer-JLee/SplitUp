@@ -19,11 +19,25 @@
 .expense-transactions-details{
     margin-left: 0.5rem;
     margin-right: 0.5rem;
-}
-
-.expense-transactions-details{
     flex-direction: column;
     text-align: center;
+}
+
+.delete-expense-button{
+   display: none;
+}
+
+.expense-header:hover .expense-transactions .delete-expense .delete-expense-button{
+    border: none;
+    background-color: #f8f8f8;
+    color: red;
+    display: flex;
+    font-weight: bold;
+}
+
+.delete-expense-button:hover{
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 .expense-payer{

@@ -30,7 +30,7 @@ export const updateExpense = (expense) => {
 
 export const deleteExpense = (expenseId) => {
     return $.ajax({
-        method: "DESTROY",
+        method: "DELETE",
         url: `/api/expenses/${expenseId}`
     })
 }
