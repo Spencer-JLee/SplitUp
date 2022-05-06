@@ -49,7 +49,7 @@ class Splash extends React.Component{
                             <div className="splash-track-balances">
                                 <h1 className="headers">Track balances</h1>
                                 <p className="descriptions">Keep track of shared expenses, balances, and who owes who</p>
-                                <img src={trackBalances} alt="" />
+                                <img src={window.trackBalances} alt="" />
                             </div>
                             <div className="splash-organize-expenses">
                                 <h1 className="headers">Organize expenses</h1>
@@ -57,7 +57,7 @@ class Splash extends React.Component{
                                     Split expenses with any group: trips, housemates,
                                     friends, and family.
                                 </p>
-                                <img src={organizeExpenses} alt="" />
+                                <img src={window.organizeExpenses} alt="" />
                             </div>
                         </div>
                         <div className="splash-bottom-features">
@@ -67,7 +67,7 @@ class Splash extends React.Component{
                                     Quickly add expenses on the go before you forget who
                                     paid.
                                 </p>
-                                <img src={addExpenses} alt="" />
+                                <img src={window.addExpenses} alt="" />
                             </div>
                             <div className="splash-pay-back">
                                 <h1 className="headers">Pay friends back</h1>
@@ -75,7 +75,7 @@ class Splash extends React.Component{
                                     Settle up with a friend and record any cash or online
                                     payment.
                                 </p>
-                                <img src={payBack} alt="" />
+                                <img src={window.payBack} alt="" />
                             </div>
                         </div>
                     </div>
@@ -91,7 +91,7 @@ class Splash extends React.Component{
                             </Link>
                         </div>
                         <div className="pro-image-div">
-                            <img className="pro-image"src={pro} alt="" />
+                            <img className="pro-image"src={window.pro} alt="" />
                         </div>
                     </div>
                 </div>
