@@ -23,9 +23,12 @@ class Api::ExpenseMembersController < ApplicationController
 
 
     def destroy
-        @expense_member = ExpenseMember.find(params[:id])
-        @expense_member.destroy
-        render json: ['Expense member deleted']
+        @expense_member = ExpenseMember.find_by(user_id: params[:user_id], expense_id: params[:expense_id])
+        if @expense_member && @expense_member.destroy
+            render json: ['Expense member deleted']
+        else
+            render json: ['Expense member cannot be deleted'], status: 401
+        end
     end
 
     private

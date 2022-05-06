@@ -1,6 +1,20 @@
 import React from "react";
+import AddExpenseModalContainer from "../modal/add_expense_modal_container";
 
 class Dashboard extends React.Component{
+    constructor(props){
+        super(props)
+        this.state = {
+            showAddExpense: false
+        }
+        this.toggleModal = this.toggleModal.bind(this)
+    }
+
+    toggleModal(){
+        const show = this.state.showAddExpense;
+        this.setState({showAddExpense: !show})
+    }
+
     render(){
         return (
             <div className="dashboard">
@@ -9,7 +23,7 @@ class Dashboard extends React.Component{
                         <h1>Dashboard</h1>
                     </div>
                     <div className="dashboard-buttons">
-                        <button className="add-expense-button">Add an expense</button>
+                        <button onClick={this.toggleModal} className="add-expense-button">Add an expense</button>
                         <button className="settle-up">Settle up</button>
                     </div>
                 </div>
@@ -34,6 +48,7 @@ class Dashboard extends React.Component{
                         
                     </div>
                 </div>
+                <AddExpenseModalContainer show={this.state.showAddExpense} toggleModal={this.toggleModal}/>
             </div>
         )
     }   

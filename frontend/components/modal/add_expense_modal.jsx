@@ -21,7 +21,6 @@ class AddExpenseModal extends React.Component{
     }
 
     update(field){
-        // debugger
         return (e) => {
             this.setState({[field]: e.currentTarget.value})
         }
@@ -46,7 +45,6 @@ class AddExpenseModal extends React.Component{
         const expense = {owner_id: this.state.owner_id, amount: this.state.amount, description: this.state.description, split_option: this.state.split_option}
         const length = this.state.expense_members.length
         const createExpenseMember = this.props.createExpenseMember
-        // debugger
         this.props.createExpense(expense).then(newExpense => {
             this.state.expense_members.forEach(user => {
                 let balance;
@@ -55,7 +53,6 @@ class AddExpenseModal extends React.Component{
                     default:
                         balance = (newExpense.expense.amount / length).toFixed(2)
                 }
-                // debugger
                 const newExpenseMember = { user_id: user.id, expense_id: newExpense.expense.id, balance: balance}
                 createExpenseMember(newExpenseMember)
             })
@@ -92,7 +89,7 @@ class AddExpenseModal extends React.Component{
     
                                 <div className="add-expense-modal-form-expense">
                                     <input type="text" placeholder="Enter a description" onChange={this.update("description")}/>
-                                    $<input type="number" placeholder="0.00" min="0.00" step="0.01" value={this.state.amount} onChange={this.update("amount")}/>
+                                    <input type="number" placeholder="$0.00" min="0.00" step="0.01" value={this.state.amount} onChange={this.update("amount")}/>
                                 </div>
                                 <div className="add-expense-modal-form-split">
                                     <label htmlFor="owner-id">Paid by </label>

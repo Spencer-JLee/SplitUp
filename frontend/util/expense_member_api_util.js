@@ -14,9 +14,9 @@ export const updateExpenseMember = (expenseMember) => {
     })
 }
 
-export const deleteExpenseMember = (expenseMemberId) => {
+export const deleteExpenseMember = (expenseMember) => {
     return $.ajax({
-        url: `/api/expense_members/${expenseMemberId}`,
+        url: `/api/expense_members/${expenseMember.id}`,
         method: 'DELETE'
     })
 }

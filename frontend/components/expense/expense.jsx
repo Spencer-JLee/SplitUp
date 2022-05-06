@@ -82,7 +82,7 @@ class Expense extends React.Component{
                             <ul>
                                 <li key={`expensedetail`+this.props.expense.owner_id+this.props.expense.id}>
                                     <strong>{owner_obj.username}</strong> paid 
-                                    <strong> ${this.props.expense.amount} </strong> 
+                                    <strong> ${parseFloat(this.props.expense.amount).toFixed(2)} </strong> 
                                     and owes <strong>${parseFloat(this.props.expense.balances[this.props.expense.owner_id]).toFixed(2)}</strong>
                                 </li> 
                                 {this.props.expense.allExpenseMembers.map(id => 

@@ -4,7 +4,13 @@
     <title>SplitUp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <script type="text/javascript">
+      window.trackBalances = "<%= image_url('track_balances.png') %>"
+      window.organizeExpenses = "<%= image_url('organize_expenses.png')%>"
+      window.addExpenses = "<%= image_url('add_expenses.png')%>"
+      window.payBack = "<%= image_url('pay_back.png')%>"
+      window.pro = "<%= image_url('pro.png') %>"
+    </script>
     <%= stylesheet_link_tag    'application', media: 'all'%>
     <%= javascript_include_tag 'application' %>
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>

@@ -19,3 +19,8 @@ export const updateExpenseMember = (expenseMember) => dispatch =>
 ExpenseMemberApiUtil.updateExpenseMember(expenseMember)
 .then(expenseMember => fetchExpense(expenseMember.expense_id))
 .then(expense => dispatch(receiveExpense(expense)))
+
+export const deleteExpenseMember = (expenseMember) => dispatch =>
+ExpenseMemberApiUtil.deleteExpenseMember(expenseMember)
+.then(expenseMember => fetchExpense(expenseMember.expense_id))
+.then(expense => dispatch(receiveExpense(expense)))
