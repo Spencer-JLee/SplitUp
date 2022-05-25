@@ -7,5 +7,6 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     resources :expenses, only: [:create, :update, :show, :index, :destroy]
     resources :expense_members, only: [:create, :update, :destroy]
+    resources :friends, only: [:create, :destroy]
   end
 end

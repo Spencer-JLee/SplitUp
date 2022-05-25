@@ -48,4 +48,20 @@ class User < ApplicationRecord
     has_many :expenses,
         through: :expense_members,
         source: :expense
+
+    has_many :friends,
+        class_name: :Friend,
+        foreign_key: :user_id
+
+    has_many :friendships,
+        through: :friends,
+        source: :user
+
+    has_many :inverse_friends,
+        class_name: :Friend,
+        foreign_key: :friend_id
+
+    has_many :inverse_friendships,
+        through: :inverse_friends,
+        source: :user
 end
