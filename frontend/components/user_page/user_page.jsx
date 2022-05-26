@@ -13,6 +13,7 @@ class UserPage extends React.Component{
                 <Switch>
                     <ProtectedRoute path="/dashboard" component={DashboardContainer}/>
                     <ProtectedRoute path="/all" component={AllExpensesContainer}/>
+                    <ProtectedRoute path="/friends/:friendID"/>
                 </Switch>
                 <RightNavBar/>
             </div>

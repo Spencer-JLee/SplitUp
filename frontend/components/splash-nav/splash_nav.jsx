@@ -28,10 +28,10 @@ export default class SplashNav extends React.Component {
             <button onClick={this.handleMenu} onBlur={this.handleMenu} className="dropdown-button">
               {this.props.currentUser.username}
               <ul onClick={e => e.stopPropagation()} className={this.state.show ? "user-dropdown" : "user-dropdown-hide"}>
-                <li className="user-options">Your account</li>
+                {/* <li className="user-options">Your account</li>
                 <li className="user-options">Create a group</li>
                 <li className="user-options">Fairness calculators</li>
-                <li className="user-options">Contact support</li>
+                <li className="user-options">Contact support</li> */}
                 <li className="user-options" onClick={this.props.logout}>Log out</li>
               </ul>
             </button>
