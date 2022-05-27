@@ -42,12 +42,19 @@ class LeftNavBar extends React.Component{
                     <div className="user-friends">
                         <p className="friends-tag">Friends</p>
                         <button className="button-tag" onClick={this.toggleModal}>add</button>
+                        <ul>
+                            {this.props.friendsId.map(id => {
+                                <li>
+                                    <Link to={`/friends/${id}`}>{this.props.users[id].username}</Link>
+                                </li>
+                            })}
+                        </ul>
                     </div>
                     <div>
                         
                     </div>
                 </div>
-                <div className="user-friends-form">
+                {/* <div className="user-friends-form">
                     <p className="invite-friends">Invite friends</p>
                     <div className="invite-form-button">
                         <form action="" className="invite-form">
@@ -55,7 +62,7 @@ class LeftNavBar extends React.Component{
                         </form>
                         <button className="invite-button">Send invite</button>
                     </div>
-                </div>
+                </div> */}
                 <AddFriendModalContainer show={this.state.showAddFriend} toggleModal={this.toggleModal}/>
             </div>
         )

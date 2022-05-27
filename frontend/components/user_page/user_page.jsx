@@ -5,6 +5,8 @@ import DashboardContainer from "../dashboard/dashboard_container"
 import { ProtectedRoute } from "../../util/route_util";
 import RightNavBar from "../right_nav_bar/right_nav_bar";
 import AllExpensesContainer from "../expense/all_expenses_container";
+import FriendContainer from "../friends/friend_container";
+
 class UserPage extends React.Component{
     render(){
         return (
@@ -13,7 +15,7 @@ class UserPage extends React.Component{
                 <Switch>
                     <ProtectedRoute path="/dashboard" component={DashboardContainer}/>
                     <ProtectedRoute path="/all" component={AllExpensesContainer}/>
-                    <ProtectedRoute path="/friends/:friendID"/>
+                    <ProtectedRoute path="/friends/:friendId" component={FriendContainer}/>
                 </Switch>
                 <RightNavBar/>
             </div>
