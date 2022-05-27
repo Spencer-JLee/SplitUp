@@ -15,14 +15,14 @@ class AddFriendModal extends React.Component{
         this.props.fetchUsers();
     }
 
-    update(field){
-        return (e) => {
-            this.setState({[field]: e.currentTarget.value})
-        }
+    addFriend = (friend) => {
+        this.setState({friend: friend})
     }
 
-    handleSubmit(){
-        
+    handleSubmit(e){
+        e.preventDefault;
+        const newFriend = { email: this.state.friend.value }
+        this.props.createFriend(newFriend).then(() => this.props.toggleModal())
     }
 
     render(){
@@ -30,11 +30,11 @@ class AddFriendModal extends React.Component{
         const usernames = [];
         users.forEach(user => {
             if(user !== this.props.currentUser && !this.props.currentUser.friendsId.includes(user.id)){
-                usernames.push({value: user, label: user.username})
+                usernames.push({value: user.email, label: user.username})
             }
         });
         // console.log(usernames)
-        if(this.props.users.length > 1){
+        if(Object.keys(this.props.users).length > 1){
             return(
                 <div className={this.props.show ? "modal-background" : "modal-background-hide"} onClick={() => this.props.toggleModal()}>
                     <div className="modal-container" onClick={(e) => e.stopPropagation()}>
@@ -45,7 +45,7 @@ class AddFriendModal extends React.Component{
                             <form action="">
                                 <Select
                                     options={usernames}
-                                    onChange={this.update("friend")}
+                                    onChange={this.addFriend}
                                 />
                             </form>
                             <button onClick={this.handleSubmit}>Add friend</button>

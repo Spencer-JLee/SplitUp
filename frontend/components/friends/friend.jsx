@@ -22,16 +22,16 @@ class Friend extends React.Component{
     }
 
     render(){
-        if(this.props.expenses){
+        if(this.props.expenses && this.props.users){
             const friend = this.props.users[this.props.match.params.friendId]
-            const friendExpenses = this.props.expenses.filter(expense => {
+            const friendExpenses = this.props.expenses.filter(expense => 
                 (expense.owner_id === friend.id && expense.allExpenseMembers.includes(this.props.currentUser.id)) ||
                 (expense.owner_id === this.props.currentUser.id && expense.allExpenseMembers.includes(friend.id))
-            })
+            )
 
-            const friendBalance = 0;
+            let friendBalance = 0;
             friendExpenses.forEach(expense => {
-                const balance = this.props.expense.balances[friend.id]
+                const balance = expense.balances[friend.id]
                 if(expense.owner_id === this.props.currentUser.id){
                     friendBalance += balance
                 }
@@ -50,9 +50,9 @@ class Friend extends React.Component{
                             <button onClick={this.toggleModal} className="add-expense-button">Add an expense</button>
                             <button onClick={() => this.props.delete(friend.id)}className="settle-up">Remove Friend</button>
                         </div>
-                        <div className="who-owes-who">
-                            {friendBalance > 0 ? friend.username + " owes you " + friendBalance : "You owe " + friend.username + " " + (friendBalance * -1)}
-                        </div>
+                    </div>
+                    <div className="who-owes-who">
+                            {friendBalance > 0 ? friend.username + " owes you $" + friendBalance : "You owe " + friend.username + " $" + (friendBalance * -1)}
                     </div>
                     <ul>
                         {
