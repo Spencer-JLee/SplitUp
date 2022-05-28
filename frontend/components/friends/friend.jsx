@@ -11,7 +11,7 @@ class Friend extends React.Component{
         this.toggleModal = this.toggleModal.bind(this)
     }
 
-    componentDidMount(){
+    componentWillMount(){
         this.props.fetchExpenses()
         this.props.fetchUsers()
     }
@@ -22,24 +22,23 @@ class Friend extends React.Component{
     }
 
     render(){
+        const friend = this.props.users[this.props.match.params.friendId]
+        const friendExpenses = this.props.expenses.filter(expense => 
+            (expense.owner_id === friend.id && expense.allExpenseMembers.includes(this.props.currentUser.id)) ||
+            (expense.owner_id === this.props.currentUser.id && expense.allExpenseMembers.includes(friend.id))
+        )
+
+        let friendBalance = 0;
+        friendExpenses.forEach(expense => {
+            const balance = expense.balances[friend.id]
+            if(expense.owner_id === this.props.currentUser.id){
+                friendBalance += balance
+            }
+            else{
+                friendBalance -= balance
+            }
+        })
         if(this.props.expenses && this.props.users){
-            const friend = this.props.users[this.props.match.params.friendId]
-            const friendExpenses = this.props.expenses.filter(expense => 
-                (expense.owner_id === friend.id && expense.allExpenseMembers.includes(this.props.currentUser.id)) ||
-                (expense.owner_id === this.props.currentUser.id && expense.allExpenseMembers.includes(friend.id))
-            )
-
-            let friendBalance = 0;
-            friendExpenses.forEach(expense => {
-                const balance = expense.balances[friend.id]
-                if(expense.owner_id === this.props.currentUser.id){
-                    friendBalance += balance
-                }
-                else{
-                    friendBalance -= balance
-                }
-            })
-
             return (
                 <div className="all-expenses">
                     <div className="all-expenses-header">
@@ -48,7 +47,7 @@ class Friend extends React.Component{
                         </div>
                         <div className="dashboard-buttons">
                             <button onClick={this.toggleModal} className="add-expense-button">Add an expense</button>
-                            <button onClick={() => this.props.delete(friend.id)}className="settle-up">Remove Friend</button>
+                            <button onClick={() => this.props.deleteFriend(friend.id).then(this.props.fetchUsers())}className="settle-up">Remove Friend</button>
                         </div>
                     </div>
                     <div className="who-owes-who">
@@ -64,9 +63,6 @@ class Friend extends React.Component{
                     <AddExpenseModalContainer show={this.state.showAddExpense} toggleModal={this.toggleModal}/>
                 </div>
             )
-        }
-        else{
-            return null;
         }
     }
 }

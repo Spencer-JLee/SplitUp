@@ -64,4 +64,8 @@ class User < ApplicationRecord
     has_many :inverse_friendships,
         through: :inverse_friends,
         source: :user
+
+    has_many :comments,
+        class_name: :Comment,
+        foreign_key: :author_id
 end

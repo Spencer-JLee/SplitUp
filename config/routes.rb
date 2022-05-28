@@ -8,5 +8,6 @@ Rails.application.routes.draw do
     resources :expenses, only: [:create, :update, :show, :index, :destroy]
     resources :expense_members, only: [:create, :update, :destroy]
     resources :friends, only: [:create, :destroy]
+    resources :comments, only: [:create, :destroy]
   end
 end

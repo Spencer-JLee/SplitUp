@@ -9,4 +9,8 @@ class Expense < ApplicationRecord
     has_many :users,
         through: :expense_members,
         source: :user
+
+    has_many :comments,
+        class_name: :Comment,
+        foreign_key: :expense_id
 end

@@ -52,9 +52,10 @@ class LeftNavBar extends React.Component{
                         <div className="friends-list">
                             <ul>
                                 {this.props.friendsId.map(id => {
+                                    const username = this.props.users[id].username
                                     return (
                                         <li className="friend-item">
-                                            <Link to={`/friends/${id}`}>{this.props.users[id].username}</Link>
+                                            <Link to={`/friends/${id}`}>{username}</Link>
                                         </li>
                                     )
                                 })}
