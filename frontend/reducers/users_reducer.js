@@ -6,16 +6,15 @@ export const usersReducer = (state ={}, action) => {
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_USERS:
-      return action.users
+      return action.users;
     case RECEIVE_USER:
-      return Object.assign({}, { [action.user.id]: action.user})
     case RECEIVE_CURRENT_USER:
       return Object.assign({}, { [action.user.id]: action.user });
     case RECEIVE_FRIEND:
-      return Object.assign({}, { [action.friend.id]: action.friend})
     case REMOVE_FRIEND:
       const nextState = Object.assign({}, state)
-      delete nextState[action.id]
+      delete nextState[action.currentUser.id]
+      nextState[action.currentUser.id] = action.currentUser
       return nextState
     default:
       return state;
