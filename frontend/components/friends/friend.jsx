@@ -47,7 +47,13 @@ class Friend extends React.Component{
                         </div>
                         <div className="dashboard-buttons">
                             <button onClick={this.toggleModal} className="add-expense-button">Add an expense</button>
-                            <button onClick={() => this.props.deleteFriend(friend.id).then(this.props.fetchUsers())}className="settle-up">Remove Friend</button>
+                            {
+                                this.props.currentUser.friendsId.includes(friend.id) ?
+                                <button onClick={() => this.props.deleteFriend(friend.id).then(this.props.fetchUsers())}className="settle-up">Remove Friend</button>
+                                :
+                                <button onClick={() => this.props.createFriend(friend).then(this.props.fetchUsers())} className="settle-up">Add Friend</button>
+                            }
+                            
                         </div>
                     </div>
                     <div className="who-owes-who">
@@ -56,7 +62,16 @@ class Friend extends React.Component{
                     <ul>
                         {
                             friendExpenses.map(expense => 
-                                <Expense key={expense.id} currentUser={this.props.currentUser} users={this.props.users} expense={expense} deleteExpense={this.props.deleteExpense}/>
+                                <Expense 
+                                    key={expense.id} 
+                                    // comments={this.props.comments} 
+                                    currentUser={this.props.currentUser} 
+                                    users={this.props.users} 
+                                    expense={expense} 
+                                    deleteExpense={this.props.deleteExpense}
+                                    createComment={this.props.createComment}
+                                    deleteComment={this.props.deleteComment}
+                                />
                             )
                         }
                     </ul>

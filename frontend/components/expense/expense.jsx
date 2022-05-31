@@ -5,10 +5,12 @@ class Expense extends React.Component{
     constructor(props){
         super(props)
         this.state = {
-            showEditExpense: false
+            showEditExpense: false,
+            body: ""
         }
         this.handleDetails = this.handleDetails.bind(this)
         this.toggleModal = this.toggleModal.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
 
     handleDetails(id){
@@ -27,6 +29,18 @@ class Expense extends React.Component{
     toggleModal(){
         const show = this.state.showEditExpense;
         this.setState({showEditExpense: !show})
+    }
+
+    update(field){
+        return (e) => {
+            this.setState({[field]: e.currentTarget.value})
+        }
+    }
+
+    handleSubmit(e){
+        e.preventDefault;
+        const comment = { author_id: this.props.currentUser.id, body: this.state.body, expense_id: this.props.expense.id }
+        this.props.createComment(comment)
     }
 
 
@@ -78,23 +92,46 @@ class Expense extends React.Component{
                             </div>
                             <button onClick={this.toggleModal} className="details-expense-button">Edit expense</button>
                         </div>
-                        <div className="details-expense-balances">
-                            <ul>
-                                <li key={`expensedetail`+this.props.expense.owner_id+this.props.expense.id}>
-                                    <strong>{owner_obj.username}</strong> paid 
-                                    <strong> ${parseFloat(this.props.expense.amount).toFixed(2)} </strong> 
-                                    and owes <strong>${parseFloat(this.props.expense.balances[this.props.expense.owner_id]).toFixed(2)}</strong>
-                                </li> 
-                                {this.props.expense.allExpenseMembers.map(id => 
-                                    id === this.props.expense.owner_id ? 
-                                    null : 
-                                    <li key={`expensedetail`+id+this.props.expense.id}>
-                                        <strong>{this.props.users[id].username}</strong> owes 
-                                        <strong> ${parseFloat(this.props.expense.balances[id]).toFixed(2)}</strong>
-                                    </li>
-                                    )}   
-                            </ul>
+                        <div>
+                            <div className="details-expense-balances">
+                                <ul>
+                                    <li key={`expensedetail`+this.props.expense.owner_id+this.props.expense.id}>
+                                        <strong>{owner_obj.username}</strong> paid 
+                                        <strong> ${parseFloat(this.props.expense.amount).toFixed(2)} </strong> 
+                                        and owes <strong>${parseFloat(this.props.expense.balances[this.props.expense.owner_id]).toFixed(2)}</strong>
+                                    </li> 
+                                    {this.props.expense.allExpenseMembers.map(id => 
+                                        id === this.props.expense.owner_id ? 
+                                        null : 
+                                        <li key={`expensedetail`+id+this.props.expense.id}>
+                                            <strong>{this.props.users[id].username}</strong> owes 
+                                            <strong> ${parseFloat(this.props.expense.balances[id]).toFixed(2)}</strong>
+                                        </li>
+                                        )}   
+                                </ul>
+                            </div>
+                            <div className="expense-comments">
+                                <div>Notes and Comments</div>
+                                <ul>
+                                    {this.props.expense.comments.map(id => {
+                                        <li>
+                                            {/* <div>
+                                                {this.props.users[this.props.comments[id].author_id].username}
+                                                <button onClick={() => this.props.deleteComment(id)}>X</button>
+                                            </div>
+                                            <div>
+                                                {this.props.comments[id].body}
+                                            </div> */}
+                                        </li>
+                                    })}
+                                </ul>
+                                <form>
+                                    <input type="text" onChange={this.update("body")}/>
+                                </form>
+                                <button onClick={this.handleSubmit}>Post</button>
+                            </div>
                         </div>
+                        
                     </div>
                     <EditExpenseModalContainer expense={this.props.expense} show={this.state.showEditExpense} toggleModal={this.toggleModal}/>
                 </li>
