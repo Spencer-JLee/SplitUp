@@ -14,7 +14,7 @@ class Api::CommentsController < ApplicationController
         @comment = Comment.find(params[:id])
 
         if @comment.destroy
-            render :show
+            render json: ["Comment deleted"]
         else  
             render json: ["That action is not available"], status: 401
         end

@@ -11,7 +11,7 @@ class AddFriendModal extends React.Component{
         this.handleSubmit = this.handleSubmit.bind(this)
     }
 
-    componentDidMount(){
+    componentWillMount(){
         this.props.fetchUsers();
     }
 
