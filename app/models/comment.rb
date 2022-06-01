@@ -3,11 +3,9 @@ class Comment < ApplicationRecord
 
     belongs_to :expense,
         foreign_key: :expense_id,
-        class_name: :Expense,
-        dependent: :destroy
+        class_name: :Expense
     
     belongs_to :author,
         foreign_key: :author_id,
-        class_name: :User,
-        dependent: :destroy
+        class_name: :User
 end

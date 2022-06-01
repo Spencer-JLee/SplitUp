@@ -92,7 +92,7 @@ class Expense extends React.Component{
                             </div>
                             <button onClick={this.toggleModal} className="details-expense-button">Edit expense</button>
                         </div>
-                        <div>
+                        <div className="details-balances-comments">
                             <div className="details-expense-balances">
                                 <ul>
                                     <li key={`expensedetail`+this.props.expense.owner_id+this.props.expense.id}>
@@ -113,16 +113,21 @@ class Expense extends React.Component{
                             <div className="expense-comments">
                                 <div>Notes and Comments</div>
                                 <ul>
-                                    {this.props.expense.comments.map(id => {
-                                        <li>
-                                            {/* <div>
-                                                {this.props.users[this.props.comments[id].author_id].username}
-                                                <button onClick={() => this.props.deleteComment(id)}>X</button>
-                                            </div>
-                                            <div>
-                                                {this.props.comments[id].body}
-                                            </div> */}
-                                        </li>
+                                    {this.props.comments.map(comment => {
+                                        return (
+                                            <li>
+                                                <div>
+                                                    {this.props.users[comment.author_id].username}
+                                                    {comment.author_id === this.props.currentUser.id ?
+                                                        <button onClick={() => this.props.deleteComment(comment.id)}>X</button>
+                                                        :
+                                                        null}
+                                                </div>
+                                                <div>
+                                                    {comment.body}
+                                                </div>
+                                            </li>
+                                        )
                                     })}
                                 </ul>
                                 <form>

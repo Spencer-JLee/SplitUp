@@ -7,7 +7,6 @@ import { createComment, deleteComment } from "../../actions/comment_actions"
 const mapStateToProps = (state) => {
     return {
         expenses: Object.values(state.entities.expenses),
-        comments: state.entities.comments,
         users: state.entities.users,
         currentUser: state.entities.users[state.session.id]
     }

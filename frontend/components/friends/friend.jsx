@@ -61,18 +61,21 @@ class Friend extends React.Component{
                     </div>
                     <ul>
                         {
-                            friendExpenses.map(expense => 
-                                <Expense 
-                                    key={expense.id} 
-                                    // comments={this.props.comments} 
-                                    currentUser={this.props.currentUser} 
-                                    users={this.props.users} 
-                                    expense={expense} 
-                                    deleteExpense={this.props.deleteExpense}
-                                    createComment={this.props.createComment}
-                                    deleteComment={this.props.deleteComment}
-                                />
-                            )
+                            friendExpenses.map(expense => {
+                                const comments = expense.comments;
+                                return (
+                                    <Expense 
+                                        key={expense.id} 
+                                        comments={comments} 
+                                        currentUser={this.props.currentUser} 
+                                        users={this.props.users} 
+                                        expense={expense} 
+                                        deleteExpense={this.props.deleteExpense}
+                                        createComment={this.props.createComment}
+                                        deleteComment={this.props.deleteComment}
+                                    />
+                                )
+                            })
                         }
                     </ul>
                     <AddExpenseModalContainer show={this.state.showAddExpense} toggleModal={this.toggleModal}/>

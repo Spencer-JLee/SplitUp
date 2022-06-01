@@ -21,7 +21,6 @@ class LeftNavBar extends React.Component{
     }
     
     render(){
-        console.log(this.props.users)
         if(Object.keys(this.props.users).length > 1){
             return (
                 <div className="left-nav-bar">
