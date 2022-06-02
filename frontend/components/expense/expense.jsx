@@ -111,19 +111,19 @@ class Expense extends React.Component{
                                 </ul>
                             </div>
                             <div className="expense-comments">
-                                <div>Notes and Comments</div>
-                                <ul>
+                                <div className="notes-comments">NOTES AND COMMENTS</div>
+                                <ul className="comments-list">
                                     {this.props.comments.map(comment => {
                                         return (
-                                            <li>
-                                                <div>
+                                            <li className="expense-comment">
+                                                <div className="comment-header">
                                                     {this.props.users[comment.author_id].username}
                                                     {comment.author_id === this.props.currentUser.id ?
-                                                        <button onClick={() => this.props.deleteComment(comment.id)}>X</button>
+                                                        <button className="delete-comment" onClick={() => this.props.deleteComment(comment.id)}>X</button>
                                                         :
                                                         null}
                                                 </div>
-                                                <div>
+                                                <div className="comment-body">
                                                     {comment.body}
                                                 </div>
                                             </li>
@@ -131,9 +131,11 @@ class Expense extends React.Component{
                                     })}
                                 </ul>
                                 <form>
-                                    <input type="text" onChange={this.update("body")}/>
+                                    {/* <input type="text" placeholder="Add a comment" onChange={this.update("body")}/> */}
+                                    <textarea className="post-comment-body" name="" id="" cols="40" rows="2" placeholder="Add a comment" onChange={this.update("body")}></textarea>
+                                    <input className="post-comment-button" type="submit" value={"Post"} onClick={this.handleSubmit}/>
                                 </form>
-                                <button onClick={this.handleSubmit}>Post</button>
+                                {/* <button onClick={this.handleSubmit}>Post</button> */}
                             </div>
                         </div>
                         

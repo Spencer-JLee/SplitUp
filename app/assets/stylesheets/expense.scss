@@ -1,4 +1,4 @@
-.expense-header, .details-expense-transactions, .details-expense-balances{
+.expense-header, .details-expense-transactions, .details-balances-comments{
     padding: 1rem;
     font-size: 1rem;
     border-bottom: 1px solid #ddd;
@@ -73,8 +73,14 @@
     display: none;
 }
 
-.details-expense-transactions, .details-expense-balances{
+.details-expense-transactions, .details-balances-comments{
     background-color: #f8f8f8;
+}
+
+.details-balances-comments{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 
 .details-expense-description{
@@ -93,7 +99,7 @@
     margin-bottom: 0.25rem;
 }
 
-.details-expense-button{
+.details-expense-button, .post-comment-button{
     background-color: #ff652f;
     color: white;
     border-radius: 5px;
@@ -121,4 +127,63 @@
     padding: 0.5rem;
     border-bottom: 1px solid #ddd;
     text-align: center;
+}
+
+.expense-comments{
+    flex-direction: column;
+    padding-left: 0.5rem;
+}
+
+.notes-comments{
+    color: #999;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.comments-list{
+    margin-bottom: 0.5rem;
+}
+
+.expense-comment{
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 0.25rem;
+    background-color: #fff;
+}
+
+.comment-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-weight: bold;
+    padding: 0.25rem;
+}
+
+.delete-comment{
+    background-color: #fff;
+    border: none;
+    text-decoration: none;
+    color: red;
+    cursor: pointer;
+}
+
+.delete-comment:hover{
+    text-decoration: underline;
+}
+
+.comment-body{
+    padding: 0.25rem;
+}
+
+.post-comment-body{
+    margin-bottom: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 0.25rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.post-comment-button{
+    padding: 0.25rem;
 }
