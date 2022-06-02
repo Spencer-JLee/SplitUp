@@ -4,7 +4,6 @@ class Api::CommentsController < ApplicationController
     def create
         @comment = Comment.new(comment_params)
         if @comment.save
-            @expense = Expense.find(params[:comment][:expense_id])
             render :show
         else
             render json: @comment.errors.full_messages, status: 401
@@ -15,7 +14,7 @@ class Api::CommentsController < ApplicationController
         @comment = Comment.find(params[:id])
 
         if @comment.destroy
-            render json: ["Comment deleted"]
+            render :show
         else  
             render json: ["That action is not available"], status: 401
         end

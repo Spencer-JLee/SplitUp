@@ -90,3 +90,47 @@
     font-size: 1rem;
     font-weight: bold;
 }
+
+.friends-owe-list, .friends-are-owed-list{
+    padding: 0.5rem;
+}
+
+.you-owe-friends, .friends-owe-you{
+    width: 50%;
+}
+
+.you-owe-friends{
+    display: flex;
+    flex-direction: column;
+}
+
+.friends-owe-you{
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    text-align: right;
+}
+
+.friend-owed-link, .friend-are-owed-link{
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.friend-owed-link a, .friend-are-owed-link a{
+    text-decoration: none;
+}
+
+.friend-are-owed-username, .friend-owed-username{
+    color: black;
+    font-weight: bold;
+}
+
+.friend-are-owed-balance{
+    color: #ff652f;
+    font-weight: 400;
+}
+
+.friend-owed-balance{
+    color: #5bc5a7;
+    font-weight: 400;
+}

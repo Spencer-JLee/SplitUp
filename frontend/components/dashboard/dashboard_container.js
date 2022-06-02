@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { fetchUsers } from "../../util/user_api_util";
+import { fetchUsers } from "../../actions/user_actions"
 import { fetchExpenses } from "../../actions/expense_actions";
 import Dashboard from "./dashboard";
 
