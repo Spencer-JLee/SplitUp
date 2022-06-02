@@ -46,7 +46,7 @@ class LeftNavBar extends React.Component{
                         </div>
                         <div className="user-friends">
                             <p className="friends-tag">Friends</p>
-                            <button className="button-tag" onClick={this.toggleModal}>add</button>
+                            <button className="button-tag" onClick={this.toggleModal}>+ add</button>
                         </div>
                         <div className="friends-list">
                             <ul>

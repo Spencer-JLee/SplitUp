@@ -39,7 +39,7 @@ class AddFriendModal extends React.Component{
                 <div className={this.props.show ? "modal-background" : "modal-background-hide"} onClick={() => this.props.toggleModal()}>
                     <div className="modal-container" onClick={(e) => e.stopPropagation()}>
                         <div className="modal-header">
-                            Add a Friend
+                            Invite Friends
                         </div>
                         <div className="add-friend-modal-form">
                             <form action="">
@@ -48,7 +48,7 @@ class AddFriendModal extends React.Component{
                                     onChange={this.addFriend}
                                 />
                             </form>
-                            <button onClick={this.handleSubmit}>Add friend</button>
+                            <button className="add-friend-button" onClick={this.handleSubmit}>Send invites and add friends</button>
                         </div>
                     </div>
                 </div>

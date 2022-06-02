@@ -52,3 +52,41 @@
 .settle-up:hover{
     background-color: #18a582;
 }
+
+.user-balances{
+    background-color: #eee;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 0.5rem;
+    color: #999;
+    font-size: 1rem;
+}
+
+.total-balance-column, .you-owe-column, .you-are-owed-column{
+    text-align: center;
+    width: 33%;
+}
+
+.you-owe-column{
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+}
+
+.you-are-owed-balance{
+    color: #5bc5a7;
+}
+
+.you-owe-balance{
+    color: #ff652f;
+}
+
+.friends-balances{
+    display: flex;
+    padding: 0.5rem;
+    flex-direction: row;
+    justify-content: space-between;
+    color: #999;
+    font-size: 1rem;
+    font-weight: bold;
+}

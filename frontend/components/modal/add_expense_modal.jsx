@@ -64,7 +64,7 @@ class AddExpenseModal extends React.Component{
         const users = this.props.users;
         const usernames = [];
         users.forEach(user => {
-            if(user !== this.props.currentUser){
+            if(user !== this.props.currentUser && this.props.currentUser.friendsId.includes(user.id)){
                 usernames.push({value: user, label: user.username})
             }
         });

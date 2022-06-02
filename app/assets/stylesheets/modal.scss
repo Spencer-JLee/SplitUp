@@ -79,3 +79,19 @@
     margin: 0.5rem;
     cursor: pointer;
 }
+
+.add-friend-modal-form{
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.add-friend-button{
+    padding: 0.5rem;
+    background-color: #ff652f;
+    color: white;
+    border-radius: 5px;
+    margin: 1rem;
+    border: 1px solid rgba(0,0,0,0.12);
+    cursor: pointer;
+}
