@@ -8,17 +8,13 @@
 }
 
 
-.user-dashboard-nav{
-    padding-bottom: 1rem;   
-}
-
 .dashboard-link, .recent-activity, .all-expenses-link{
     padding: 0.25rem;
     text-decoration: none;
     color: #999;
 }
 
-.dashboard-link:hover, .recent-activity:hover, .all-expenses-link:hover{
+.dashboard-link:hover, .recent-activity:hover, .all-expenses-link:hover, .friend-item:hover{
     background-color: #eee;
 }
 
@@ -86,4 +82,14 @@
     border: 1px solid rgba(0,0,0,0.1);
     padding: 0.25rem;
     border-radius: 5px;
+}
+
+.friend-item{
+    padding: 0.25rem;
+}
+
+.friend-item a{
+    padding: 0.25rem;
+    text-decoration: none;
+    color: #999;
 }

@@ -28,10 +28,10 @@ class AllExpenses extends React.Component{
                     <div className="all-expenses-header">
                         <div className="all-expenses-title">
                             <h1>All expenses</h1>
-                        </div>
-                        <div className="dashboard-buttons">
-                            <button onClick={this.toggleModal} className="add-expense-button">Add an expense</button>
-                            <button className="settle-up">Settle up</button>
+                            <div className="dashboard-buttons">
+                                <button onClick={this.toggleModal} className="add-expense-button">Add an expense</button>
+                                <button className="settle-up">Settle up</button>
+                            </div>
                         </div>
                     </div>
                     <ul>

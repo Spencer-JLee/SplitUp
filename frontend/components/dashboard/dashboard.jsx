@@ -21,24 +21,23 @@ class Dashboard extends React.Component{
                 <div className="dashboard-header">
                     <div className="dashboard-title">
                         <h1>Dashboard</h1>
+                        <div className="dashboard-buttons">
+                            <button onClick={this.toggleModal} className="add-expense-button">Add an expense</button>
+                            <button className="settle-up">Settle up</button>
+                        </div>
                     </div>
-                    <div className="dashboard-buttons">
-                        <button onClick={this.toggleModal} className="add-expense-button">Add an expense</button>
-                        <button className="settle-up">Settle up</button>
-                    </div>
+                    
                 </div>
                 <div>
-                    <ul>
-                        <li>
+                    <div>
 
-                        </li>
-                        <li>
+                    </div>
+                    <div>
 
-                        </li>
-                        <li>
+                    </div>
+                    <div>
 
-                        </li>
-                    </ul>
+                    </div>
                 </div>
                 <div>
                     <div>

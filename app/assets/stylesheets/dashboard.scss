@@ -14,21 +14,17 @@
     border-bottom: 1px solid #ddd;
 }
 
-.dashboard-title, .dashboard-buttons, .all-expenses-title{
-    flex: 1;
-}
-
-.dashboard-title{
+.dashboard-title, .all-expenses-title{
     padding: 0.5rem;
-    text-align: left;
+    font-weight: 400;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
     font-weight: bold;
 }
 
-.all-expenses-title{
-    padding: 0.5rem;
-    text-align: left;
-    font-weight: 400;
-}
 
 .add-expense-button, .settle-up{
     float: none;
