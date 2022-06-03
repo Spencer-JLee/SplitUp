@@ -93,7 +93,12 @@ class EditExpenseModal extends React.Component{
                 <div className={this.props.show ? "modal-background" : "modal-background-hide"} onClick={() => this.props.toggleModal()}>
                     <div className="modal-container" onClick={(e) => e.stopPropagation()}>
                         <div className="modal-header">
-                            Edit expense
+                            <div>
+                                Edit expense
+                            </div>
+                            <div>
+                                <button className="close-modal-button" onClick={() => this.props.toggleModal()}>X</button>
+                            </div>
                         </div>
                         <div className="add-expense-modal-form">
                             <form action="">
@@ -117,7 +122,7 @@ class EditExpenseModal extends React.Component{
                                     <select name="" id="owner-id" onChange={this.update("owner_id")}>
                                         {this.state.expense_members.map(user => <option selected={user.id === ownerId ? true : false} value={user.id}>{user.username}</option>)}
                                     </select>
-                                    <label htmlFor="split-options"> and split</label>
+                                    <label htmlFor="split-options"> and split </label>
                                     <select name="" id="split-options" onChange={this.update("split_option")}>
                                         <option selected={split_option === "equally" ? true : false} value="equally">equally</option>
                                         <option selected={split_option === "exact_amount" ? true : false} value="exact_amount">exact amount</option>

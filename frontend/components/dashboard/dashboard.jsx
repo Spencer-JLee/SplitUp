@@ -70,7 +70,7 @@ class Dashboard extends React.Component{
                             <h1>Dashboard</h1>
                             <div className="dashboard-buttons">
                                 <button onClick={this.toggleModal} className="add-expense-button">Add an expense</button>
-                                <button className="settle-up">Settle up</button>
+                                {/* <button className="settle-up">Settle up</button> */}
                             </div>
                         </div>
                     </div>

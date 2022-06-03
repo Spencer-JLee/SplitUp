@@ -91,10 +91,6 @@
     font-weight: bold;
 }
 
-.friends-owe-list, .friends-are-owed-list{
-    padding: 0.5rem;
-}
-
 .you-owe-friends, .friends-owe-you{
     width: 50%;
 }
@@ -112,8 +108,11 @@
 }
 
 .friend-owed-link, .friend-are-owed-link{
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+    padding: 0.5rem;
+}
+
+.friend-owed-link:hover, .friend-are-owed-link:hover{
+    background-color: #f8f8f8;
 }
 
 .friend-owed-link a, .friend-are-owed-link a{

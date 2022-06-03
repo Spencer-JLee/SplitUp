@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom"
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -77,7 +78,9 @@ class SessionForm extends React.Component {
       <div className="signup">
         <div className="signup-container">
           <div>
-          <a href=""><img className="splitwise-logo"src="https://assets.splitwise.com/assets/core/logo-square-65a6124237868b1d2ce2f5db2ab0b7c777e2348b797626816400534116ae22d7.svg" alt="" /></a>
+            <Link to="/">
+              <img className="splitwise-logo"src="https://assets.splitwise.com/assets/core/logo-square-65a6124237868b1d2ce2f5db2ab0b7c777e2348b797626816400534116ae22d7.svg" alt="" />
+            </Link>
           </div>
           <div className="signup-form-container">
             <h2 className="introduce">INTRODUCE YOURSELF</h2>

@@ -6,6 +6,8 @@
 
 .expense-header{
     cursor: pointer;
+    display: flex;
+    align-items: center;
 }
 
 .expense-header:hover{
@@ -23,16 +25,21 @@
     text-align: center;
 }
 
+.delete-expense{
+    display: flex;
+    align-items: center;
+}
+
 .delete-expense-button{
-   display: none;
+    border: none;
+    background-color: transparent;
+    color: transparent;
+    display: flex;
+    font-weight: bold;
 }
 
 .expense-header:hover .expense-transactions .delete-expense .delete-expense-button{
-    border: none;
-    background-color: #f8f8f8;
     color: red;
-    display: flex;
-    font-weight: bold;
 }
 
 .delete-expense-button:hover{

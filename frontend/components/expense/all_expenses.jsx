@@ -30,7 +30,7 @@ class AllExpenses extends React.Component{
                             <h1>All expenses</h1>
                             <div className="dashboard-buttons">
                                 <button onClick={this.toggleModal} className="add-expense-button">Add an expense</button>
-                                <button className="settle-up">Settle up</button>
+                                {/* <button className="settle-up">Settle up</button> */}
                             </div>
                         </div>
                     </div>

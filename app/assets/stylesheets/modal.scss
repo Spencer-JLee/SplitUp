@@ -25,6 +25,32 @@
     background-color: #48be9d;
     color: white;
     padding: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.friend-modal-header{
+    background-color: white;
+    color: black;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.close-modal-button{
+    background-color: transparent;
+    border: none;
+    color: red;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-modal-button:hover{
+    text-decoration: underline;
 }
 
 .add-expense-modal-form{

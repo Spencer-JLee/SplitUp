@@ -168,3 +168,11 @@
 .pro-description, .pro-image-div{
     flex: 1;
 }
+
+.splash-about-links{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2rem;
+}
