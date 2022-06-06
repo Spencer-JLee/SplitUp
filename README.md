@@ -103,22 +103,88 @@ A user is able to either sign up as a new user or login into an existing user in
 
 ## Expenses <a name="expenses"></a>
 
-An expense shows the description of the expense as well as the total amount the owner paid and the part of the expense that they supposed to contribute. Clicking on the expense shows greater detail of the expense such as the individual members of the expense as well as an edit expense button. Only friends can be members of an expense.
+An expense shows the description of the expense as well as the total amount the owner paid and the part of the expense that they supposed to contribute. Clicking on the expense shows greater detail of the expense such as the individual members of the expense as well as an edit expense button. 
 
+![all-expenses](/app/assets/images/all-expenses.png)
 
+While creating an expense, users can decide the total amount, the description, and the owner of the expense.
+Only friends of the current user can be members of an expense.
+
+![create-expense](/app/assets/images/create-expense.png)
 ---
 
 ## Friends <a name="friends"></a>
 
 Users can add a user to their friends list. Users can search for which friend they would like to add from a drop
-down menu. Upon adding a user as a friend, users can click on said friend's link under the friends list. This link
-will redirect the current user to the friend's page, which shows all of the expenses in which either the current
-user or the friend is an owner of the expense. Users can perform all of the same actions under the all expenses page.
+down menu. 
 
+![create-friend](/app/assets/images/create-friend.png)
+
+Upon adding a user as a friend, users can click on said friend's link under the friends list. 
+
+![add-friend](/app/assets/images/add-friend.png)
+
+This link will redirect the current user to the friend's page, which shows all of the expenses in which either the current user or the friend is an owner of the expense. Users can perform all of the same actions under the all expenses page.
+
+![friend](/app/assets/images/friend.png)
 ---
 
 ## Code Snippets <a name="code"></a>
 
 ```javascript
+let youOwe = 0;
+let youAreOwed = 0;
+this.props.expenses.forEach(expense => {
+    if(this.props.currentUser.id === expense.owner_id){
+        youAreOwed += Object.values(expense.balances).reduce((a, b) => a + b, 0) - expense.balances[this.props.currentUser.id]
+    }
+    else{
+        youOwe += expense.balances[this.props.currentUser.id]
+    }
+})
 
+let friendsOwe = {};
+let friendsAreOwed = {};
+
+this.props.currentUser.friendsId.forEach((id) => {
+    const friend = this.props.users[id];
+    const friendExpenses = this.props.expenses.filter(expense => 
+        (expense.owner_id === friend.id && expense.allExpenseMembers.includes(this.props.currentUser.id)) ||
+        (expense.owner_id === this.props.currentUser.id && expense.allExpenseMembers.includes(friend.id))
+    )
+
+    let friendBalance = 0;
+    friendExpenses.forEach(expense => {
+        const balance = expense.balances[friend.id]
+        if(expense.owner_id === this.props.currentUser.id){
+            friendBalance += balance
+        }
+        else{
+            friendBalance -= balance
+        }
+    })
+
+    if(friendBalance > 0){
+        friendsOwe[id] = friendBalance
+    }
+    else{
+        friendsAreOwed[id] = friendBalance
+    }
+})
 ```
+This code block handles the logic of showing the amount the current user is owed,
+the amount the current owes, their balance, and how much they are owed/owe amongst
+their friends. 
+
+The first loop goes through all of the expenses that are associated 
+with the user. For each expense, if the owner is the current user, the amount is 
+the user increased by the total amount that all other members of that expense owe.
+Otherwise, the amount the user owes is increased by the amount they owe for that expense.
+
+To determine the amount each friend of the current owes/is owed, for each friend,
+expenses that both the friend and current user are part and expense that either 
+the current user or their friend is owner are filtered. For each of those expenses,
+depending on if the current user or the friend is the owner of the expense, the friend's
+balance is adjusted. If the balance is greater than 0, it falls under the column
+of which the friend owes the user. Otherwise it falls under the column in which
+the current user owes the friend.
