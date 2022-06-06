@@ -11,7 +11,9 @@
 
 4. [Friends](#friends-a-name"friends")
 
-5. [Code Snippets](#code-snippets-a-name"code")
+5. [Comments](#commnents-a-name"comments"a)
+
+6. [Code Snippets](#code-snippets-a-name"code")
 
 ---
 
@@ -101,14 +103,17 @@ A user is able to either sign up as a new user or login into an existing user in
 
 ## Expenses <a name="expenses"></a>
 
-An expense shows the description of the expense as well as the total amount the owner paid and the part of the expense that they supposed to contribute. Clicking on the expense shows greater detail of the expense such as the individual members of the expense as well as an edit expense button.
+An expense shows the description of the expense as well as the total amount the owner paid and the part of the expense that they supposed to contribute. Clicking on the expense shows greater detail of the expense such as the individual members of the expense as well as an edit expense button. Only friends can be members of an expense.
 
 
 ---
 
 ## Friends <a name="friends"></a>
 
-To be implemented in the future
+Users can add a user to their friends list. Users can search for which friend they would like to add from a drop
+down menu. Upon adding a user as a friend, users can click on said friend's link under the friends list. This link
+will redirect the current user to the friend's page, which shows all of the expenses in which either the current
+user or the friend is an owner of the expense. Users can perform all of the same actions under the all expenses page.
 
 ---
 
