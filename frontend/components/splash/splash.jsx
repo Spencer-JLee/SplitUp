@@ -113,6 +113,9 @@ class Splash extends React.Component{
                     </div>
                 </div>
                 <div>
+                    <div className="disclaimer">
+                        Disclaimer: Images on splash page as well as Splitwise logo are from Splitwise for cloning purposes.
+                    </div>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 91">
                         <path fill="#ACE4D6" d="M349 76.499L286 113V40z"></path>
                         <path fill="#0C3C32" d="M480 74.5L446 94V55z"></path>
