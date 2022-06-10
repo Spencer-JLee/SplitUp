@@ -82,38 +82,44 @@ class AddExpenseModal extends React.Component{
                             </div>
                         </div>
                         <div className="add-expense-modal-form">
-                            <form action="">
-                                <div className="add-expense-modal-form-users">
-                                    With <strong>you</strong> and :
-                                    <Select 
-                                        options={usernames} 
-                                        isMulti
-                                        onChange={this.addExpenseMembers}
-                                    />
-                                </div>
-    
-                                <div className="add-expense-modal-form-expense">
-                                    <input type="text" placeholder="Enter a description" onChange={this.update("description")}/>
-                                    <input type="number" placeholder="$0.00" min="0.00" step="0.01" value={this.state.amount} onChange={this.update("amount")}/>
-                                </div>
-                                <div className="add-expense-modal-form-split">
-                                    <label htmlFor="owner-id">Paid by </label>
-                                    <select name="" id="owner-id" onChange={this.update("owner_id")}>
-                                        {this.state.expense_members.map(user => <option value={user.id}>{user.username}</option>)}
-                                    </select>
-                                    <label htmlFor="split-options"> and split </label>
-                                    <select name="" id="split-options" onChange={this.update("split_option")}>
-                                        <option value="equally">equally</option>
-                                        <option value="exact_amount">exact amount</option>
-                                        <option value="percentages">percentages</option>
-                                        <option value="shares">shares</option>
-                                    </select>
-                                </div>
-                                <div className="add-expense-modal-form-buttons">
-                                    <button onClick={() => this.props.toggleModal()} className="modal-cancel-button">Cancel</button>
-                                    <button onClick={this.handleSubmit} className="modal-save-button">Save</button>
-                                </div>
-                            </form>
+                            {
+                                usernames.length > 0 ?
+                                <form action="">
+                                    <div className="add-expense-modal-form-users">
+                                        With <strong>you</strong> and :
+                                        <Select 
+                                            options={usernames} 
+                                            isMulti
+                                            onChange={this.addExpenseMembers}
+                                        />
+                                    </div>
+        
+                                    <div className="add-expense-modal-form-expense">
+                                        <input type="text" placeholder="Enter a description" onChange={this.update("description")}/>
+                                        <input type="number" placeholder="$0.00" min="0.00" step="0.01" value={this.state.amount} onChange={this.update("amount")}/>
+                                    </div>
+                                    <div className="add-expense-modal-form-split">
+                                        <label htmlFor="owner-id">Paid by </label>
+                                        <select name="" id="owner-id" onChange={this.update("owner_id")}>
+                                            {this.state.expense_members.map(user => <option value={user.id}>{user.username}</option>)}
+                                        </select>
+                                        <label htmlFor="split-options"> and split </label>
+                                        <select name="" id="split-options" onChange={this.update("split_option")}>
+                                            <option value="equally">equally</option>
+                                            <option value="exact_amount">exact amount</option>
+                                            <option value="percentages">percentages</option>
+                                            <option value="shares">shares</option>
+                                        </select>
+                                    </div>
+                                    <div className="add-expense-modal-form-buttons">
+                                        <button onClick={() => this.props.toggleModal()} className="modal-cancel-button">Cancel</button>
+                                        <button onClick={this.handleSubmit} className="modal-save-button">Save</button>
+                                    </div>
+                                </form>
+                                :
+                                <p>Please add a friend first</p>
+                            }
+                            
                         </div>
                     </div>
                 </div>  
