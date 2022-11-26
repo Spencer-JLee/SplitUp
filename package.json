@@ -12,6 +12,7 @@
     "react-icons": "^4.3.1",
     "react-redux": "^7.2.8",
     "react-router-dom": "^5.3.1",
+    "react-scripts": "^5.0.1",
     "react-select": "^5.3.1",
     "react-svg": "^14.1.19",
     "redux": "^4.1.2",
@@ -30,17 +31,16 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack --watch --mode=development",
-    "build": "webpack --mode=production",
+    "build": "npm install --prefix frontend && npm run build --prefix frontend",
     "postinstall": "webpack"
   },
   "engines": {
-    "node": "10.13.0",
+    "node": "16.x",
     "npm": "6.4.1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Spencer-JLee/SplitUp.git"
